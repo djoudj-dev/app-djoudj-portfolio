@@ -1,1 +1,102 @@
-/* You can add global styles to this file, and also import other style files */
+/* Importation de Tailwind CSS (si nécessaire) */
+@import 'tailwindcss';
+
+/* Définition des couleurs pour le mode clair et sombre */
+:root {
+  /* Couleurs pour le mode clair */
+  --color-text-light: #1f1f1f;
+  --color-background-light: #f9fafb;
+  --color-primary-light: #384252;
+  --color-secondary-light: #65758b;
+  --color-accent-light: #db7706;
+
+  /* Couleurs pour le mode sombre */
+  --color-text-dark: #e0e0e0;
+  --color-background-dark: #040506;
+  --color-primary-dark: #adb7c7;
+  --color-secondary-dark: #74849a;
+  --color-accent-dark: #f99624;
+
+  /* Couleurs par défaut (mode clair) */
+  --color-text: var(--color-text-light);
+  --color-background: var(--color-background-light);
+  --color-primary: var(--color-primary-light);
+  --color-secondary: var(--color-secondary-light);
+  --color-accent: var(--color-accent-light);
+}
+
+/* Couleurs pour le mode sombre */
+[data-theme='dark'] {
+  --color-text: var(--color-text-dark);
+  --color-background: var(--color-background-dark);
+  --color-primary: var(--color-primary-dark);
+  --color-secondary: var(--color-secondary-dark);
+  --color-accent: var(--color-accent-dark);
+}
+
+/* Styles de base */
+.bg-background {
+  background-color: var(--color-background);
+}
+.bg-primary {
+  background-color: var(--color-primary);
+}
+.bg-secondary {
+  background-color: var(--color-secondary);
+}
+.bg-accent {
+  background-color: var(--color-accent);
+}
+
+.text-text {
+  color: var(--color-text);
+}
+.text-primary {
+  color: var(--color-primary);
+}
+.text-secondary {
+  color: var(--color-secondary);
+}
+.text-accent {
+  color: var(--color-accent);
+}
+
+.border-background {
+  border-color: var(--color-background);
+}
+.border-primary {
+  border-color: var(--color-primary);
+}
+.border-secondary {
+  border-color: var(--color-secondary);
+}
+.border-accent {
+  border-color: var(--color-accent);
+}
+
+/* Styles pour les éléments au survol */
+.bg-background:hover {
+  background-color: var(--color-background);
+}
+.bg-primary:hover {
+  background-color: var(--color-primary);
+}
+.bg-secondary:hover {
+  background-color: var(--color-secondary);
+}
+.bg-accent:hover {
+  background-color: var(--color-accent);
+}
+
+.text-text:hover {
+  color: var(--color-text);
+}
+.text-primary:hover {
+  color: var(--color-primary);
+}
+.text-secondary:hover {
+  color: var(--color-secondary);
+}
+.text-accent:hover {
+  color: var(--color-accent);
+}
