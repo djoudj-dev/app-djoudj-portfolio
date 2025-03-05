@@ -1,26 +1,11 @@
 import { Component } from '@angular/core';
+import { NavbarSmartComponent } from './core/components/navbar/navbar.smart.component';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html'
+  templateUrl: './app.component.html',
+  imports: [NavbarSmartComponent]
 })
 export class AppComponent {
-  isDarkMode = false;
-  private readonly themeKey = 'theme';
-
-  constructor() {
-    this.loadTheme();
-  }
-
-  toggleDarkMode(): void {
-    this.isDarkMode = !this.isDarkMode;
-    document.documentElement.setAttribute('data-theme', this.isDarkMode ? 'dark' : 'light');
-    localStorage.setItem(this.themeKey, this.isDarkMode ? 'dark' : 'light');
-  }
-
-  private loadTheme(): void {
-    const savedTheme = localStorage.getItem(this.themeKey) || 'light';
-    this.isDarkMode = savedTheme === 'dark';
-    document.documentElement.setAttribute('data-theme', savedTheme);
-  }
+  title = 'Julien N.';
 }
