@@ -100,3 +100,10 @@
 .text-accent:hover {
   color: var(--color-accent);
 }
+
+.shadow-sm {
+  box-shadow: 0 1px 3px -2px var(--color-background-dark);
+}
+[data-theme='dark'] .shadow-sm {
+  box-shadow: 0 1px 3px -2px var(--color-background-light);
+}
