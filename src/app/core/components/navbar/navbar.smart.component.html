@@ -1,10 +1,12 @@
 <nav class="bg-background shadow-sm">
   <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+    <!-- Logo -->
     <div class="flex flex-col items-start">
       <h1 class="text-3xl text-text font-bold">Julien<span class="text-accent">.</span>N</h1>
     </div>
 
-    <div class="flex-grow flex justify-center">
+    <!-- Navigation principale -->
+    <div class="hidden lg:flex flex-grow justify-center">
       <ul class="flex space-x-6">
         <li>
           <a
@@ -66,7 +68,8 @@
       </ul>
     </div>
 
-    <div class="flex items-center gap-4">
+    <!-- Icônes Mode Sombre / Clair et Menu Mobile -->
+    <div class="flex items-center gap-2">
       <button
         class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
         [attr.aria-label]="isDarkMode() ? 'Activer le mode clair' : 'Activer le mode sombre'"
@@ -78,6 +81,32 @@
           <img src="/icons/icons_navbar/icon_moon.svg" alt="Mode sombre" class="w-6 h-6" />
         }
       </button>
+      <!-- Menu mobile -->
+      <button
+        class="lg:hidden p-2 focus:outline-none transition-transform duration-300 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700"
+        aria-label="Menu"
+        (click)="toggleMenu()"
+      >
+        <img
+          alt="Menu"
+          class="w-6 h-6 transform transition-transform duration-300"
+          [src]="isMenuOpen() ? '/icons/icons_navbar/close.svg' : '/icons/icons_navbar/menu.svg'"
+          [class.rotate-180]="isMenuOpen()"
+        />
+      </button>
     </div>
   </div>
+  <!-- Menu mobile déroulant -->
+  @if (isMenuOpen()) {
+    <div
+      class="lg:hidden flex flex-col items-center space-y-4 py-4 bg-background shadow-md transition-all duration-300"
+    >
+      <a href="#" class="text-text hover:text-accent transition duration-200">Home</a>
+      <a href="#" class="text-text hover:text-accent transition duration-200">About</a>
+      <a href="#" class="text-text hover:text-accent transition duration-200">Projects</a>
+      <a href="#" class="text-text hover:text-accent transition duration-200">Stacks</a>
+      <a href="#" class="text-text hover:text-accent transition duration-200">Blog</a>
+      <a href="#" class="text-text hover:text-accent transition duration-200">Contact</a>
+    </div>
+  }
 </nav>
