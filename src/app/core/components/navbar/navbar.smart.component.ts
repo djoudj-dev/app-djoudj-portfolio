@@ -9,6 +9,7 @@ import { Component, signal } from '@angular/core';
 })
 export class NavbarSmartComponent {
   isDarkMode = signal<boolean>(false);
+  isMenuOpen = signal<boolean>(false);
   private readonly themeKey = 'theme';
 
   constructor() {
@@ -19,6 +20,10 @@ export class NavbarSmartComponent {
     this.isDarkMode.update(current => !current);
     document.documentElement.setAttribute('data-theme', this.isDarkMode() ? 'dark' : 'light');
     localStorage.setItem(this.themeKey, this.isDarkMode() ? 'dark' : 'light');
+  }
+
+  toggleMenu(): void {
+    this.isMenuOpen.update(current => !current);
   }
 
   private loadTheme(): void {
