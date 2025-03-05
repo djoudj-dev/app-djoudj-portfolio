@@ -1,0 +1,56 @@
+---
+description: 
+globs: *.ts, *.html, *.css, src/**, *.json
+---
+/**
+ * # Problèmes de Performance (Frontend)
+ * "Analyse ce code et détecte les éventuels problèmes de performance. Propose des optimisations concrètes en expliquant pourquoi elles sont nécessaires."
+ * - Utilise `ChangeDetectionStrategy.OnPush` pour minimiser les rendus inutiles.
+ * - Optimise les calculs coûteux dans les templates Angular.
+ * - Réduis les dépendances inutiles.
+ */
+
+/**
+ * # Respect des Meilleures Pratiques Angular / TypeScript
+ * "Est-ce que ce code respecte bien les meilleures pratiques Angular / TypeScript ? Détecte les mauvaises utilisations de :
+ * - Change detection : Vérifie si `ChangeDetectionStrategy.OnPush` est utilisé correctement.
+ * - Async Pipe : Assure-toi que l'`async pipe` est utilisé pour les observables.
+ * - Lazy Loading : Vérifie que les modules Angular sont chargés de manière paresseuse.
+ * - Typage strict : Assure-toi que le typage strict est activé dans `tsconfig.json` (`strict: true`).
+ * Propose des solutions pour corriger ces problèmes."
+ */
+
+/**
+ * # Respect des Principes SOLID et Clean Code
+ * "Est-ce que ce code suit bien les principes SOLID et Clean Code ? Détecte les problèmes et propose un refactoring :
+ * - Single Responsibility Principle (SRP)
+ * - Open/Closed Principle (OCP)
+ * - Liskov Substitution Principle (LSP)
+ * - Interface Segregation Principle (ISP)
+ * - Dependency Inversion Principle (DIP)
+ * - Clean Code : Le code doit être lisible, bien nommé, et sans duplication."
+ */
+
+/**
+ * # Détection de Failles de Sécurité
+ * "Ce code présente-t-il des failles de sécurité potentielles ? (XSS, CSRF, fuite de données, mauvaise gestion des JWT...)
+ * - XSS : Vérifie que les données affichées dans les templates Angular sont correctement échappées.
+ * - CSRF : Assure-toi que les requêtes HTTP sensibles sont protégées avec des tokens CSRF.
+ * - JWT : Assure-toi que les tokens JWT sont correctement validés et sécurisés."
+ */
+
+/**
+ * # Détection des Erreurs TypeScript & JavaScript
+ * "Détecte les erreurs potentielles dans ce code TypeScript / JavaScript et propose une correction en respectant le typage strict :
+ * - Vérifie les types des variables, des paramètres et des retours de fonctions.
+ * - Utilise les types génériques et les interfaces pour éviter les erreurs de typage.
+ * - Corrige les erreurs liées à `null` ou `undefined` en utilisant des types comme `string | null`."
+ */
+
+/**
+ * # Tests et Robustesse
+ * "Ce code est-il testable et robuste ? Détecte les cas non couverts et propose des améliorations de tests unitaires / intégration :
+ * - Tests unitaires avec Vitest : Écris des tests clairs et maintenables avec Vitest, en utilisant des utilitaires comme `TestBed` ou `TestingModule` pour Angular.
+ * - Couverture des tests : Assure-toi que tous les cas d'utilisation sont couverts, y compris les cas d'erreur et les edge cases.
+ * - Tests d'intégration : Vérifie que les interactions entre les composants ou services sont correctement testées."
+ */

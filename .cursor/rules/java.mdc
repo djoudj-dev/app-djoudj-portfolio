@@ -1,0 +1,56 @@
+---
+description: 
+globs: *.java
+---
+/**
+ * # Problèmes de Performance (Backend)
+ * "Analyse ce code et détecte les éventuels problèmes de performance. Propose des optimisations concrètes en expliquant pourquoi elles sont nécessaires."
+ * - Optimise les requêtes SQL ou les appels à des services externes.
+ * - Utilise le pagination et le cache pour réduire la charge sur la base de données.
+ * - Réduis les dépendances inutiles et les calculs coûteux."
+ */
+
+/**
+ * # Respect des Meilleures Pratiques Java / Spring Boot
+ * "Est-ce que ce code respecte bien les meilleures pratiques Java / Spring Boot ? Détecte les mauvaises utilisations de :
+ * - Injection de dépendances : Assure-toi que les services sont correctement injectés avec `@Autowired` ou `@Inject`.
+ * - Validation des données : Utilise des annotations comme `@Valid` et des validateurs pour sécuriser les entrées.
+ * - Gestion des transactions : Utilise `@Transactional` pour gérer les transactions de manière sécurisée.
+ * Propose des solutions pour corriger ces problèmes."
+ */
+
+/**
+ * # Respect des Principes SOLID et Clean Code
+ * "Est-ce que ce code suit bien les principes SOLID et Clean Code ? Détecte les problèmes et propose un refactoring :
+ * - Single Responsibility Principle (SRP)
+ * - Open/Closed Principle (OCP)
+ * - Liskov Substitution Principle (LSP)
+ * - Interface Segregation Principle (ISP)
+ * - Dependency Inversion Principle (DIP)
+ * - Clean Code : Le code doit être lisible, bien nommé, et sans duplication."
+ */
+
+/**
+ * # Détection de Failles de Sécurité
+ * "Ce code présente-t-il des failles de sécurité potentielles ? (SQL Injection, XSS, CSRF, fuite de données, mauvaise gestion des JWT...)
+ * - SQL Injection : Vérifie que les requêtes SQL sont paramétrées et non vulnérables.
+ * - XSS : Vérifie que les données renvoyées aux clients sont correctement échappées.
+ * - CSRF : Assure-toi que les requêtes HTTP sensibles sont protégées avec des tokens CSRF.
+ * - JWT : Assure-toi que les tokens JWT sont correctement validés et sécurisés."
+ */
+
+/**
+ * # Détection des Erreurs Java
+ * "Détecte les erreurs potentielles dans ce code Java et propose une correction :
+ * - Vérifie les types des variables, des paramètres et des retours de fonctions.
+ * - Utilise les annotations et les interfaces pour éviter les erreurs de typage.
+ * - Corrige les erreurs liées à `null` ou `undefined` en utilisant des types comme `Optional`."
+ */
+
+/**
+ * # Tests et Robustesse
+ * "Ce code est-il testable et robuste ? Détecte les cas non couverts et propose des améliorations de tests unitaires / intégration :
+ * - Tests unitaires avec JUnit ou Mockito : Écris des tests clairs et maintenables pour les services et contrôleurs Spring Boot.
+ * - Couverture des tests : Assure-toi que tous les cas d'utilisation sont couverts, y compris les cas d'erreur et les edge cases.
+ * - Tests d'intégration : Vérifie que les interactions entre les services et la base de données sont correctement testées."
+ */
