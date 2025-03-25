@@ -1,4 +1,4 @@
-/* Importation de Tailwind CSS (si nécessaire) */
+/* Importation de Tailwind CSS */
 @import 'tailwindcss';
 
 /* Définition des couleurs pour le mode clair et sombre */
@@ -12,7 +12,7 @@
 
   /* Couleurs pour le mode sombre */
   --color-text-dark: #e0e0e0;
-  --color-background-dark: #040506;
+  --color-background-dark: #232425;
   --color-primary-dark: #adb7c7;
   --color-secondary-dark: #74849a;
   --color-accent-dark: #f99624;
@@ -32,6 +32,69 @@
   --color-primary: var(--color-primary-dark);
   --color-secondary: var(--color-secondary-dark);
   --color-accent: var(--color-accent-dark);
+}
+
+/* Déclinaisons des couleurs avec opacité en OKLCH */
+@theme {
+  --color-primary-50: oklch(0.971 0.013 17.38);
+  --color-primary-100: oklch(0.936 0.032 17.717);
+  --color-primary-200: oklch(0.885 0.062 18.334);
+  --color-primary-300: oklch(0.808 0.114 19.571);
+  --color-primary-400: oklch(0.704 0.191 22.216);
+  --color-primary-500: oklch(0.637 0.237 25.331);
+  --color-primary-600: oklch(0.577 0.245 27.325);
+  --color-primary-700: oklch(0.505 0.213 27.518);
+  --color-primary-800: oklch(0.444 0.177 26.899);
+  --color-primary-900: oklch(0.396 0.141 25.723);
+  --color-primary-950: oklch(0.258 0.092 26.042);
+
+  --color-secondary-50: oklch(0.971 0.013 20);
+  --color-secondary-100: oklch(0.936 0.032 20.5);
+  --color-secondary-200: oklch(0.885 0.062 21);
+  --color-secondary-300: oklch(0.808 0.114 22);
+  --color-secondary-400: oklch(0.704 0.191 23.5);
+  --color-secondary-500: oklch(0.637 0.237 25);
+  --color-secondary-600: oklch(0.577 0.245 26);
+  --color-secondary-700: oklch(0.505 0.213 27);
+  --color-secondary-800: oklch(0.444 0.177 27.5);
+  --color-secondary-900: oklch(0.396 0.141 28);
+  --color-secondary-950: oklch(0.258 0.092 28.5);
+
+  --color-text-50: oklch(0.98 0.01 19);
+  --color-text-100: oklch(0.95 0.03 19.5);
+  --color-text-200: oklch(0.9 0.06 20);
+  --color-text-300: oklch(0.82 0.11 21);
+  --color-text-400: oklch(0.72 0.18 22.5);
+  --color-text-500: oklch(0.65 0.23 24);
+  --color-text-600: oklch(0.58 0.25 25);
+  --color-text-700: oklch(0.5 0.22 26);
+  --color-text-800: oklch(0.44 0.18 27);
+  --color-text-900: oklch(0.39 0.14 28);
+  --color-text-950: oklch(0.26 0.09 29);
+
+  --color-background-50: oklch(0.98 0.01 20);
+  --color-background-100: oklch(0.95 0.03 20.5);
+  --color-background-200: oklch(0.9 0.06 21);
+  --color-background-300: oklch(0.82 0.11 22);
+  --color-background-400: oklch(0.72 0.18 23);
+  --color-background-500: oklch(0.65 0.23 24);
+  --color-background-600: oklch(0.58 0.25 25);
+  --color-background-700: oklch(0.5 0.22 26);
+  --color-background-800: oklch(0.44 0.18 27);
+  --color-background-900: oklch(0.39 0.14 28);
+  --color-background-950: oklch(0.26 0.09 29);
+
+  --color-accent-50: oklch(0.98 0.01 21);
+  --color-accent-100: oklch(0.95 0.03 21.5);
+  --color-accent-200: oklch(0.9 0.06 22);
+  --color-accent-300: oklch(0.82 0.11 23);
+  --color-accent-400: oklch(0.72 0.18 24);
+  --color-accent-500: oklch(0.65 0.23 25);
+  --color-accent-600: oklch(0.58 0.25 26);
+  --color-accent-700: oklch(0.5 0.22 27);
+  --color-accent-800: oklch(0.44 0.18 28);
+  --color-accent-900: oklch(0.39 0.14 29);
+  --color-accent-950: oklch(0.26 0.09 30);
 }
 
 /* Styles de base */
