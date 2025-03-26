@@ -1,11 +1,10 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { Component, ElementRef, OnDestroy, signal } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.smart.component.html',
-  standalone: true,
-  imports: [CommonModule]
+  imports: [CommonModule, NgOptimizedImage]
 })
 export class NavbarSmartComponent implements OnDestroy {
   isDarkMode = signal<boolean>(false);
