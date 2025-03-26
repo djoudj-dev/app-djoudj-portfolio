@@ -1,1 +1,48 @@
-<app-about-page />
+<div class="container mx-auto px-4 md:px-6 lg:px-8">
+  <header class="py-8 md:py-12 lg:py-18">
+    <div class="flex justify-center mb-8 md:mb-10" aria-live="polite">
+      <app-badge />
+    </div>
+
+    <div class="text-center py-4 md:py-12 lg:py-24">
+      <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold bg-gradient-to-l from-accent to-text text-gradient inline-block">{{ title() }}</h1>
+      <h2 class="mt-2 md:mt-3 text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-gray-500">{{ subtitle() }}</h2>
+      <p class="mt-6 md:mt-8 lg:mt-10 text-base sm:text-lg md:text-xl text-accent font-bold max-w-3xl mx-auto">
+        {{ text() }}
+      </p>
+    </div>
+
+    <div class="flex justify-center items-center gap-4">
+      <app-button variant="secondary" ariaLabel="Télécharger mon CV">
+        <div class="flex items-center gap-2">
+          <span>Télécharger mon CV</span>
+          <img
+            ngSrc="/icons/buttons/download_light.svg"
+            alt="Télécharger"
+            width="24"
+            height="24"
+            class="w-5 h-5"
+            [ngClass]="{ 'dark-icon': isDarkMode(), 'light-icon': !isDarkMode() }"
+          />
+        </div>
+      </app-button>
+      <app-button variant="accent" ariaLabel="Découvrir mes projets">
+        <div class="flex items-center gap-2">
+          <span>Découvrir mes projets</span>
+          <img
+            ngSrc="/icons/buttons/arrow_light.svg"
+            alt="Découvrir"
+            width="24"
+            height="24"
+            class="w-5 h-5"
+            [ngClass]="{ 'dark-arrow-icon': isDarkMode(), 'light-arrow-icon': !isDarkMode() }"
+          />
+        </div>
+      </app-button>
+    </div>
+  </header>
+
+  <main>
+    <app-about-page />
+  </main>
+</div>
