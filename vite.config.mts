@@ -1,5 +1,3 @@
-/// <reference types="vitest" />
-
 import angular from '@analogjs/vite-plugin-angular';
 
 import { defineConfig } from 'vite';
