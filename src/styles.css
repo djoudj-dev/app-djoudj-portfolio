@@ -146,12 +146,25 @@
   color: var(--color-accent);
 }
 
+.hover\:border-accent:hover {
+  border-color: var(--color-accent);
+}
+
 .shadow-sm {
   box-shadow: 0 1px 3px -2px var(--color-background-dark);
 }
 [data-theme='dark'] .shadow-sm {
   box-shadow: 0 1px 3px -2px var(--color-background-light);
 }
+
+footer.shadow-sm {
+  box-shadow: 0 -1px 3px -2px var(--color-background-dark);
+}
+
+[data-theme="dark"] footer.shadow-sm {
+  box-shadow: 0 -1px 3px -2px var(--color-background-light);
+}
+
 
 /* Style for text gradient */
 .text-gradient {
@@ -190,9 +203,5 @@
 /* Smooth scrolling for the entire document */
 html {
   scroll-behavior: smooth;
-}
-
-/* Scroll padding to account for fixed navbar */
-html {
-  scroll-padding-top: 80px; /* Adjust this value based on your navbar height */
+  scroll-padding-top: 80px;
 }
