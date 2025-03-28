@@ -1,12 +1,21 @@
 import { NgClass, NgOptimizedImage } from '@angular/common';
 import { Component, signal } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 import { BadgeDumbComponent } from '../shared/components/badge/badge.dumb.component';
 import { ButtonDumbComponent } from '../shared/components/button/button.dumb.component';
 import { AboutPageComponent } from './visitors/about/about.page.component';
 import { SkillsPageComponent } from './visitors/skills/skills.page.component';
 
 @Component({
-  imports: [AboutPageComponent, SkillsPageComponent, BadgeDumbComponent, ButtonDumbComponent, NgClass, NgOptimizedImage],
+  imports: [
+    BadgeDumbComponent,
+    ButtonDumbComponent,
+    NgClass,
+    NgOptimizedImage,
+    RouterOutlet,
+    AboutPageComponent,
+    SkillsPageComponent
+  ],
   templateUrl: './home.page.component.html',
   styles: `
     .dark-icon {
