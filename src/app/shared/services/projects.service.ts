@@ -2,13 +2,14 @@ import { Injectable, signal } from '@angular/core';
 import { Project } from '../models/project.model';
 
 /**
- * Service for managing projects data
+ * Service de gestion des données des projets.
+ * Fournit des méthodes pour récupérer, filtrer et rechercher les projets.
  */
 @Injectable({
   providedIn: 'root'
 })
 export class ProjectsService {
-  /** Projects data */
+  /** Données des projets */
   private projects = signal<Project[]>([
     {
       id: 1,
@@ -62,26 +63,26 @@ export class ProjectsService {
   ]);
 
   /**
-   * Get all projects
-   * @returns Signal with all projects
+   * Récupère tous les projets.
+   * @returns Signal contenant tous les projets
    */
   getProjects() {
     return this.projects;
   }
 
   /**
-   * Get a project by ID
-   * @param id Project ID
-   * @returns Project with the specified ID or undefined if not found
+   * Récupère un projet par son ID.
+   * @param id Identifiant du projet
+   * @returns Projet avec l'ID spécifié ou undefined si non trouvé
    */
   getProjectById(id: number): Project | undefined {
     return this.projects().find(project => project.id === id);
   }
 
   /**
-   * Search projects by term
-   * @param term Search term
-   * @returns Array of projects matching the search term
+   * Recherche des projets par terme.
+   * @param term Terme de recherche
+   * @returns Tableau des projets correspondant au terme de recherche
    */
   searchProjects(term: string): Project[] {
     const searchTerm = term.toLowerCase();

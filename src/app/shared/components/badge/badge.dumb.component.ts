@@ -1,12 +1,20 @@
 import { NgClass } from '@angular/common';
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 
+/**
+ * Énumération des différents statuts possibles pour le badge.
+ */
 export enum BadgeStatus {
   Disponible = 'disponible',
   Indisponible = 'indisponible',
   DisponibleAPartirDu = 'disponible a partir du'
 }
 
+/**
+ * Composant de badge affichant le statut de disponibilité.
+ * Utilisé pour indiquer visuellement si un service ou une personne est disponible,
+ * indisponible, ou disponible à partir d'une date spécifique.
+ */
 @Component({
   selector: 'app-badge',
   standalone: true,
@@ -33,10 +41,19 @@ export enum BadgeStatus {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BadgeDumbComponent {
-  BadgeStatus = BadgeStatus; // Expose enum to template
+  /** Expose l'énumération BadgeStatus au template */
+  BadgeStatus = BadgeStatus;
+
+  /** Signal contenant le statut actuel du badge */
   status = signal<BadgeStatus>(BadgeStatus.Disponible);
+
+  /** Signal contenant la date à partir de laquelle la disponibilité est prévue */
   availableFromDate = signal<string>('21 Avril 2025');
 
+  /**
+   * Calcule le texte à afficher en fonction du statut actuel.
+   * @returns Le texte formaté à afficher dans le badge
+   */
   get statusText(): string {
     if (this.status() === BadgeStatus.DisponibleAPartirDu && this.availableFromDate()) {
       return `Disponible à partir du ${this.availableFromDate()}`;

@@ -2,13 +2,17 @@ import { Component, signal } from '@angular/core';
 import { NgClass, NgOptimizedImage } from '@angular/common';
 import { ThemeService } from '../../../shared/services/theme.service';
 
-// Skill interface
+/**
+ * Interface définissant une compétence technique.
+ */
 interface Skill {
   name: string;
   icon: string;
 }
 
-// Skill category interface
+/**
+ * Interface définissant une catégorie de compétences techniques.
+ */
 interface SkillCategory {
   title: string;
   description: string;
@@ -16,6 +20,10 @@ interface SkillCategory {
   icon: string;
 }
 
+/**
+ * Composant de la page des compétences.
+ * Affiche les différentes catégories de compétences techniques organisées par domaine.
+ */
 @Component({
   selector: 'app-skills-page',
   standalone: true,
@@ -51,20 +59,20 @@ interface SkillCategory {
 })
 export class SkillsPageComponent {
   /**
-   * Constructor injects the theme service
-   * @param themeService Service to manage theme preferences
+   * Constructeur qui injecte le service de thème
+   * @param themeService Service pour gérer les préférences de thème
    */
   constructor(public themeService: ThemeService) {}
 
   /**
-   * Check if dark mode is enabled
-   * @returns True if dark mode is enabled, false otherwise
+   * Vérifie si le mode sombre est activé
+   * @returns Vrai si le mode sombre est activé, faux sinon
    */
   isDarkMode(): boolean {
     return this.themeService.isDarkMode();
   }
 
-  // Frontend skills
+  /** Compétences frontend */
   frontendSkills = signal<SkillCategory>({
     title: 'Frontend',
     description: 'Technologies et frameworks pour le développement d’interfaces utilisateur modernes, réactives et accessibles, garantissant une expérience fluide et ergonomique.',
@@ -77,7 +85,7 @@ export class SkillsPageComponent {
     ]
   });
 
-  // Backend skills
+  /** Compétences backend */
   backendSkills = signal<SkillCategory>({
     title: 'Backend',
     description: 'Frameworks et technologies permettant de concevoir des API performantes, évolutives et sécurisées pour des applications web et mobiles.',
@@ -90,7 +98,7 @@ export class SkillsPageComponent {
     ]
   });
 
-  // Database skills
+  /** Compétences en bases de données */
   databaseSkills = signal<SkillCategory>({
     title: 'Base de données',
     description: 'Solutions de stockage et de gestion des données, relationnelles et non relationnelles, adaptées aux besoins des applications modernes.',
@@ -102,7 +110,7 @@ export class SkillsPageComponent {
     ]
   });
 
-  // DevOps/Tools skills
+  /** Compétences DevOps et outils */
   devopsSkills = signal<SkillCategory>({
     title: 'DevOps & Outils',
     description: 'Ensemble d’outils et de technologies facilitant l’automatisation, le déploiement, la gestion de projet et l’amélioration des workflows de développement.',
@@ -116,7 +124,7 @@ export class SkillsPageComponent {
     ]
   });
 
-  // Array of all skill categories for easy iteration
+  /** Tableau de toutes les catégories de compétences pour faciliter l'itération */
   skillCategories = signal<SkillCategory[]>([
     this.frontendSkills(),
     this.backendSkills(),

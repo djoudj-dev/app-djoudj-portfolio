@@ -1,16 +1,17 @@
 import { Injectable, signal } from '@angular/core';
 
 /**
- * Service for managing theme (light/dark mode) across the application
+ * Service de gestion du thème (mode clair/sombre) dans toute l'application.
+ * Permet de basculer entre les thèmes et de sauvegarder les préférences de l'utilisateur.
  */
 @Injectable({
   providedIn: 'root'
 })
 export class ThemeService {
-  /** Key used for storing theme preference in localStorage */
+  /** Clé utilisée pour stocker la préférence de thème dans le localStorage */
   private readonly themeKey = 'theme';
 
-  /** Signal for dark mode state */
+  /** Signal pour l'état du mode sombre */
   isDarkMode = signal<boolean>(false);
 
   constructor() {
@@ -18,7 +19,7 @@ export class ThemeService {
   }
 
   /**
-   * Toggles between light and dark theme
+   * Bascule entre les thèmes clair et sombre.
    */
   toggleTheme(): void {
     const newTheme = this.isDarkMode() ? 'light' : 'dark';
@@ -26,8 +27,8 @@ export class ThemeService {
   }
 
   /**
-   * Sets the theme to the specified value
-   * @param theme The theme to set ('light' or 'dark')
+   * Définit le thème à la valeur spécifiée.
+   * @param theme Le thème à définir ('light' pour clair ou 'dark' pour sombre)
    */
   setTheme(theme: 'light' | 'dark'): void {
     this.isDarkMode.set(theme === 'dark');
@@ -39,15 +40,15 @@ export class ThemeService {
   }
 
   /**
-   * Gets the current theme
-   * @returns The current theme ('light' or 'dark')
+   * Récupère le thème actuel.
+   * @returns Le thème actuel ('light' pour clair ou 'dark' pour sombre)
    */
   getTheme(): 'light' | 'dark' {
     return this.isDarkMode() ? 'dark' : 'light';
   }
 
   /**
-   * Loads the theme preference from localStorage
+   * Charge la préférence de thème depuis le localStorage.
    */
   private loadTheme(): void {
     const savedTheme = localStorage.getItem(this.themeKey) || 'light';
