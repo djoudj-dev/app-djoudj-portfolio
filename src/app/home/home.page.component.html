@@ -1,5 +1,5 @@
-<div id="accueil" class="container mx-auto px-4 md:px-6 lg:px-8 pt-24">
-  <header class="py-8 md:py-12 lg:py-18 mb-10">
+<div id="accueil" class="container mx-auto px-4 md:px-6 lg:px-8 pt-26">
+  <header class="py-8 md:py-12 lg:py-18">
     <div class="flex justify-center mb-8 md:mb-10" aria-live="polite">
       <app-badge />
     </div>
@@ -13,29 +13,27 @@
     </div>
 
     <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
-      <app-button variant="secondary" ariaLabel="Télécharger mon CV">
+      <app-button variant="secondary" ariaLabel="Télécharger mon CV" (buttonClick)="downloadCV()">
         <div class="flex items-center gap-2">
           <span>Télécharger mon CV</span>
           <img
-            ngSrc="/icons/buttons/download_light.svg"
+            [ngSrc]="isDarkMode() ? '/icons/buttons/download-dark.svg' : '/icons/buttons/download-light.svg'"
             alt="Télécharger"
             width="24"
             height="24"
             class="w-5 h-5"
-            [ngClass]="{ 'dark-icon': isDarkMode(), 'light-icon': !isDarkMode() }"
           />
         </div>
       </app-button>
-      <app-button variant="accent" ariaLabel="Découvrir mes projets">
+      <app-button variant="accent" ariaLabel="Découvrir mes projets" (buttonClick)="scrollToProjects()">
         <div class="flex items-center gap-2">
           <span>Découvrir mes projets</span>
           <img
-            ngSrc="/icons/buttons/arrow_light.svg"
+            [ngSrc]="isDarkMode() ? '/icons/buttons/arrow-dark.svg' : '/icons/buttons/arrow-light.svg'"
             alt="Découvrir"
             width="24"
             height="24"
             class="w-5 h-5"
-            [ngClass]="{ 'dark-arrow-icon': isDarkMode(), 'light-arrow-icon': !isDarkMode() }"
           />
         </div>
       </app-button>
@@ -47,7 +45,9 @@
     <router-outlet></router-outlet>
 
     <!-- Direct inclusion of components for single-page scrolling -->
-    <app-about-page></app-about-page>
-    <app-skills-page></app-skills-page>
+    <app-about-page />
+    <app-skills-page />
+    <app-projects-page />
+    <app-contact-page />
   </main>
 </div>
