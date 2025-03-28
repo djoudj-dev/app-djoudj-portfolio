@@ -1,10 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { vi } from 'vitest';
 import { NavbarSmartComponent } from './navbar.smart.component';
+import { ThemeService } from '../../../shared/services/theme.service';
 
 describe('NavbarSmartComponent', () => {
   let component: NavbarSmartComponent;
   let fixture: ComponentFixture<NavbarSmartComponent>;
+  let themeService: ThemeService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -13,6 +15,7 @@ describe('NavbarSmartComponent', () => {
 
     fixture = TestBed.createComponent(NavbarSmartComponent);
     component = fixture.componentInstance;
+    themeService = TestBed.inject(ThemeService);
     fixture.detectChanges();
   });
 
@@ -21,7 +24,7 @@ describe('NavbarSmartComponent', () => {
   });
 
   it('should toggle theme correctly', () => {
-    component.isDarkMode.set(false); // Assure que le thème initial est clair
+    themeService.isDarkMode.set(false); // Assure que le thème initial est clair
     component.toggleTheme();
 
     expect(component.isDarkMode()).toBe(true); // Doit maintenant être en mode sombre
@@ -49,6 +52,7 @@ describe('NavbarSmartComponent', () => {
 
   it('should load theme from localStorage on initialization', () => {
     localStorage.setItem('theme', 'dark');
+    themeService.loadTheme(); // Force reload theme from localStorage
 
     fixture = TestBed.createComponent(NavbarSmartComponent);
     component = fixture.componentInstance;
@@ -80,7 +84,7 @@ describe('NavbarSmartComponent', () => {
 
   it('should initialize with default theme if no theme is in localStorage', () => {
     localStorage.removeItem('theme');
-    component['loadTheme']();
+    themeService.loadTheme();
     expect(component.isDarkMode()).toBe(false);
     expect(document.documentElement.getAttribute('data-theme')).toBe('light');
   });

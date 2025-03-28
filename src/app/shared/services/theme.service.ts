@@ -50,7 +50,7 @@ export class ThemeService {
   /**
    * Charge la préférence de thème depuis le localStorage.
    */
-  private loadTheme(): void {
+  loadTheme(): void {
     const savedTheme = localStorage.getItem(this.themeKey) || 'light';
     this.isDarkMode.set(savedTheme === 'dark');
     document.documentElement.setAttribute('data-theme', savedTheme);
