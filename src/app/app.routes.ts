@@ -1,5 +1,13 @@
 import { Routes } from '@angular/router';
 
+/**
+ * Configuration des routes de l'application.
+ * Définit les différentes routes accessibles et les composants associés.
+ * Inclut:
+ * - La page d'accueil
+ * - Des redirections vers les sections de la page d'accueil (à propos, compétences, projets, contact)
+ * - Les pages légales (politique de confidentialité, CGU, mentions légales)
+ */
 export const routes: Routes = [
   {
     path: '',

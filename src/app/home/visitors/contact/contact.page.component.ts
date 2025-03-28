@@ -3,20 +3,39 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { NgClass, NgOptimizedImage } from '@angular/common';
 import { ThemeService } from '../../../shared/services/theme.service';
 
+/**
+ * Interface définissant les informations de contact affichées sur la page.
+ */
 interface ContactInfo {
+  /** Chemin de l'icône (déterminé dynamiquement par getIconPath) */
   icon: string;
+  /** Titre de l'information de contact */
   title: string;
+  /** Valeur principale de l'information */
   value: string;
+  /** Lien optionnel associé à l'information */
   link?: string;
+  /** Texte descriptif optionnel */
   text?: string;
 }
 
+/**
+ * Interface définissant un lien vers un réseau social.
+ */
 interface SocialLink {
+  /** Nom du réseau social */
   name: string;
+  /** Chemin de l'icône */
   icon: string;
+  /** URL du profil */
   url: string;
 }
 
+/**
+ * Composant de la page de contact.
+ * Gère l'affichage des informations de contact, des liens vers les réseaux sociaux
+ * et le formulaire de contact.
+ */
 @Component({
   selector: 'app-contact-page',
   imports: [ReactiveFormsModule, NgClass, NgOptimizedImage],
@@ -24,11 +43,14 @@ interface SocialLink {
   styleUrl: './contact.page.component.css'
 })
 export class ContactPageComponent {
+  /** Formulaire de contact */
   contactForm: FormGroup;
+  /** Indique si le formulaire a été soumis */
   formSubmitted = signal<boolean>(false);
+  /** Indique si la soumission du formulaire a réussi */
   formSuccess = signal<boolean>(false);
 
-  // Contact information cards
+  /** Cartes d'informations de contact */
   contactInfo = signal<ContactInfo[]>([
     {
       icon: '', // Icon is now determined by getIconPath method
@@ -58,7 +80,7 @@ export class ContactPageComponent {
     }
   ]);
 
-  // Social media links
+  /** Liens vers les réseaux sociaux */
   socialLinks = signal<SocialLink[]>([
     {
       name: 'LinkedIn',
@@ -90,51 +112,70 @@ export class ContactPageComponent {
   }
 
   /**
-   * Check if dark mode is enabled
-   * @returns True if dark mode is enabled, false otherwise
+   * Vérifie si le mode sombre est activé
+   * @returns Vrai si le mode sombre est activé, faux sinon
    */
   isDarkMode(): boolean {
     return this.themeService.isDarkMode();
   }
 
-  // Submit form
+  /**
+   * Soumet le formulaire de contact
+   */
   onSubmit(): void {
     this.formSubmitted.set(true);
 
     if (this.contactForm.valid) {
-      // Here you would typically send the form data to a backend service
-      console.log('Form submitted:', this.contactForm.value);
+      // Ici, on enverrait normalement les données du formulaire à un service backend
+      console.log('Formulaire soumis:', this.contactForm.value);
 
-      // Simulate successful submission
+      // Simulation d'une soumission réussie
       this.formSuccess.set(true);
       this.contactForm.reset();
       this.formSubmitted.set(false);
 
-      // Reset success message after 5 seconds
+      // Réinitialisation du message de succès après 5 secondes
       setTimeout(() => {
         this.formSuccess.set(false);
       }, 5000);
     }
   }
 
-  // Form validation helpers
+  /**
+   * Vérifie si un champ du formulaire a une erreur spécifique
+   * @param controlName Nom du champ à vérifier
+   * @param errorName Nom de l'erreur à vérifier
+   * @returns Vrai si le champ a l'erreur spécifiée, faux sinon
+   */
   hasError(controlName: string, errorName: string): boolean {
     const control = this.contactForm.get(controlName);
     return control?.touched && control?.hasError(errorName) || false;
   }
 
+  /**
+   * Vérifie si un champ du formulaire est invalide
+   * @param controlName Nom du champ à vérifier
+   * @returns Vrai si le champ est invalide et a été touché, faux sinon
+   */
   isInvalid(controlName: string): boolean {
     const control = this.contactForm.get(controlName);
     return control?.touched && control?.invalid || false;
   }
 
-  // Get current character count for message field
+  /**
+   * Obtient le nombre actuel de caractères dans le champ message
+   * @returns Nombre de caractères dans le champ message
+   */
   getMessageCharCount(): number {
     const messageControl = this.contactForm.get('message');
     return messageControl?.value?.length || 0;
   }
 
-  // Get the appropriate icon path based on the title and theme
+  /**
+   * Obtient le chemin d'icône approprié en fonction du titre et du thème
+   * @param title Titre de l'information de contact
+   * @returns Chemin de l'icône correspondante
+   */
   getIconPath(title: string): string {
     const isDark = this.isDarkMode();
 
@@ -152,7 +193,11 @@ export class ContactPageComponent {
     }
   }
 
-  // Get the appropriate social icon path based on the social media platform and theme
+  /**
+   * Obtient le chemin d'icône approprié pour un réseau social en fonction de la plateforme et du thème
+   * @param social Objet contenant les informations du réseau social
+   * @returns Chemin de l'icône correspondante
+   */
   getSocialIconPath(social: SocialLink): string {
     const isDark = this.isDarkMode();
 

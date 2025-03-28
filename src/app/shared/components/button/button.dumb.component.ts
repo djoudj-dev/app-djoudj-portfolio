@@ -1,9 +1,23 @@
 import { NgClass } from '@angular/common';
 import { ChangeDetectionStrategy, Component, EventEmitter, Output, computed, input, signal } from '@angular/core';
 
+/**
+ * Types de variantes disponibles pour le bouton.
+ * Détermine l'apparence visuelle du bouton.
+ */
 export type ButtonVariant = 'primary' | 'secondary' | 'accent' | 'outline' | 'text';
+
+/**
+ * Tailles disponibles pour le bouton.
+ * Détermine les dimensions et l'espacement du bouton.
+ */
 export type ButtonSize = 'sm' | 'md' | 'lg';
 
+/**
+ * Composant de bouton réutilisable avec différentes variantes et tailles.
+ * Prend en charge les états de chargement, de désactivation et les événements de clic.
+ * Utilise l'API d'entrée basée sur les signaux d'Angular pour une meilleure performance.
+ */
 @Component({
   selector: 'app-button',
   imports: [NgClass],
@@ -38,21 +52,31 @@ export type ButtonSize = 'sm' | 'md' | 'lg';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ButtonDumbComponent {
-  // Inputs using the new signal-based API
+  /** Variante du bouton (primary, secondary, accent, outline, text) */
   variant = input<ButtonVariant>('primary');
+
+  /** Taille du bouton (sm, md, lg) */
   size = input<ButtonSize>('md');
+
+  /** Indique si le bouton est désactivé */
   disabled = input<boolean>(false);
+
+  /** Indique si le bouton doit occuper toute la largeur disponible */
   fullWidth = input<boolean>(false);
+
+  /** Étiquette d'accessibilité pour les lecteurs d'écran */
   ariaLabel = input<string | null>(null);
+
+  /** Type de bouton HTML (button, submit, reset) */
   type = input<'button' | 'submit' | 'reset'>('button');
 
-  // Loading state
+  /** État de chargement du bouton */
   isLoading = signal<boolean>(false);
 
-  // Click event output
+  /** Événement émis lors du clic sur le bouton */
   @Output() buttonClick = new EventEmitter<MouseEvent>();
 
-  // Computed classes based on component state
+  /** Classes CSS calculées en fonction de la variante du bouton */
   variantClasses = computed(() => {
     switch (this.variant()) {
       case 'primary':
@@ -70,6 +94,7 @@ export class ButtonDumbComponent {
     }
   });
 
+  /** Classes CSS calculées en fonction de la taille du bouton */
   sizeClasses = computed(() => {
     switch (this.size()) {
       case 'sm':
@@ -83,9 +108,14 @@ export class ButtonDumbComponent {
     }
   });
 
+  /** Classes CSS calculées en fonction de l'état du bouton (pleine largeur) */
   stateClasses = computed(() => (this.fullWidth() ? 'w-full' : ''));
 
-  // Handle click with loading state
+  /**
+   * Gère l'événement de clic sur le bouton.
+   * Empêche l'action si le bouton est désactivé ou en cours de chargement.
+   * @param event Événement de clic de la souris
+   */
   onClick(event: MouseEvent): void {
     if (this.disabled() || this.isLoading()) {
       event.preventDefault();
@@ -95,7 +125,10 @@ export class ButtonDumbComponent {
     this.buttonClick.emit(event);
   }
 
-  // Method to set loading state
+  /**
+   * Définit l'état de chargement du bouton.
+   * @param loading Vrai pour activer l'état de chargement, faux pour le désactiver
+   */
   setLoading(loading: boolean): void {
     this.isLoading.set(loading);
   }

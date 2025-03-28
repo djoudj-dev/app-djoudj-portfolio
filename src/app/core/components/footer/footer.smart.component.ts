@@ -2,17 +2,32 @@ import { CommonModule, ViewportScroller } from '@angular/common';
 import { AfterViewInit, ChangeDetectionStrategy, Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 
+/**
+ * Interface définissant un élément de raccourci dans le pied de page.
+ */
 interface ShortcutItem {
+  /** Texte affiché pour le lien */
   label: string;
+  /** Route de navigation */
   routerLink: string;
+  /** Fragment (ancre) pour le défilement */
   fragment: string;
 }
 
+/**
+ * Interface définissant un élément légal dans le pied de page.
+ */
 interface LegalItem {
+  /** Texte affiché pour le lien */
   label: string;
+  /** Route de navigation */
   route: string;
 }
 
+/**
+ * Composant du pied de page de l'application.
+ * Gère les raccourcis de navigation et les liens vers les pages légales.
+ */
 @Component({
   selector: 'app-footer',
   standalone: true,
@@ -22,6 +37,7 @@ interface LegalItem {
 })
 export class FooterSmartComponent implements AfterViewInit {
 
+  /** Liste des éléments de raccourci affichés dans le pied de page */
   shortcutItems: ShortcutItem[] = [
     { label: 'Accueil', routerLink: '/', fragment: 'accueil' },
     { label: 'A propos', routerLink: '/', fragment: 'about' },
@@ -30,40 +46,55 @@ export class FooterSmartComponent implements AfterViewInit {
     { label: 'Contact', routerLink: '/', fragment: 'contact' }
   ];
 
+  /** Liste des éléments légaux affichés dans le pied de page */
   legalItems: LegalItem[] = [
     { label: 'Politique de confidentialité', route: '/legal/privacy' },
     { label: 'Mentions légales', route: '/legal/notice' },
     { label: 'CGU', route: '/legal/terms' }
   ];
 
+  /**
+   * Fragment en attente de traitement après une navigation.
+   * Utilisé pour mémoriser l'ancre vers laquelle défiler après un changement de page.
+   */
   private pendingFragment: string | null = null;
 
+  /**
+   * Constructeur du composant.
+   * @param viewportScroller Service permettant de faire défiler la page vers des ancres
+   * @param router Service de navigation Angular
+   */
   constructor(
     private viewportScroller: ViewportScroller,
     private router: Router
   ) {}
 
+  /**
+   * Fait défiler la page jusqu'à une section spécifique.
+   * Si l'utilisateur n'est pas sur la page d'accueil, il y sera d'abord redirigé.
+   * @param fragment Identifiant de la section vers laquelle défiler
+   */
   scrollToSection(fragment: string): void {
-    // If fragment is empty, just navigate to home page
+    // Si le fragment est vide, naviguer simplement vers la page d'accueil
     if (!fragment) {
       this.router.navigate(['/']);
       return;
     }
 
-    // First navigate to the home page if not already there
+    // D'abord naviguer vers la page d'accueil si on n'y est pas déjà
     if (this.router.url !== '/') {
-      // Store the fragment to scroll to after navigation
+      // Stocker le fragment pour y défiler après la navigation
       this.pendingFragment = fragment;
       this.router.navigate(['/'], { fragment });
     } else {
-      // If already on home page, just scroll to the element
-      // Use setTimeout to ensure the DOM has been updated
+      // Si déjà sur la page d'accueil, défiler simplement vers l'élément
+      // Utiliser setTimeout pour s'assurer que le DOM a été mis à jour
       setTimeout(() => {
         const element = document.getElementById(fragment);
         if (element) {
           element.scrollIntoView({ behavior: 'smooth' });
         } else {
-          // Fallback to ViewportScroller if element not found
+          // Solution de repli vers ViewportScroller si l'élément n'est pas trouvé
           this.viewportScroller.scrollToAnchor(fragment);
         }
       }, 100);
@@ -71,19 +102,19 @@ export class FooterSmartComponent implements AfterViewInit {
   }
 
   /**
-   * Lifecycle hook that is called after the view is initialized
-   * Used to scroll to the anchor after navigation
+   * Méthode de cycle de vie appelée après l'initialisation de la vue.
+   * Utilisée pour défiler vers l'ancre après la navigation.
    */
   ngAfterViewInit(): void {
-    // If we have a pending fragment, scroll to it
+    // Si nous avons un fragment en attente, défiler vers celui-ci
     if (this.pendingFragment) {
-      // Use setTimeout to ensure the DOM has been updated
+      // Utiliser setTimeout pour s'assurer que le DOM a été mis à jour
       setTimeout(() => {
         const element = document.getElementById(this.pendingFragment!);
         if (element) {
           element.scrollIntoView({ behavior: 'smooth' });
         } else {
-          // Fallback to ViewportScroller if element not found
+          // Solution de repli vers ViewportScroller si l'élément n'est pas trouvé
           this.viewportScroller.scrollToAnchor(this.pendingFragment!);
         }
         this.pendingFragment = null;
@@ -92,8 +123,8 @@ export class FooterSmartComponent implements AfterViewInit {
   }
 
   /**
-   * Navigates to a specific route
-   * @param route The route to navigate to
+   * Navigue vers une route spécifique.
+   * @param route La route vers laquelle naviguer
    */
   navigateToRoute(route: string): void {
     this.router.navigate([route]);
