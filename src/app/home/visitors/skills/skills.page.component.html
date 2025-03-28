@@ -1,1 +1,59 @@
-<p>skills works!</p>
+<section id="skills" class="py-12 md:py-16 lg:py-18">
+  <div class="container mx-auto px-4 md:px-6 lg:px-8 pt-10">
+    <h2 class="text-2xl sm:text-2xl md:text-3xl lg:text-3xl xl:text-4xl font-bold bg-gradient-to-l from-accent to-text text-gradient inline-block mb-8">Mes compétences techniques</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+      <!-- Iterate through skill categories -->
+      @for (category of skillCategories(); track category.title; let i = $index) {
+        <div class="bg-background backdrop-blur-sm border border-primary rounded-xl shadow-sm">
+          <!-- Card header with primary background -->
+          <div class="p-4 rounded-t-xl">
+            <h3 class="text-2xl font-semibold text-text flex items-center">
+              <img
+                ngSrc="{{ category.icon }}"
+                alt="{{ category.title }}"
+                width="24"
+                height="24"
+                class="w-8 h-8 mr-2"
+                [ngClass]="{
+                  'frontend-dark-icon': isDarkMode() && category.title === 'Frontend',
+                  'frontend-light-icon': !isDarkMode() && category.title === 'Frontend',
+                  'backend-dark-icon': isDarkMode() && category.title === 'Backend',
+                  'backend-light-icon': !isDarkMode() && category.title === 'Backend',
+                  'bdd-dark-icon': isDarkMode() && category.title === 'Base de données',
+                  'bdd-light-icon': !isDarkMode() && category.title === 'Base de données',
+                  'devops-dark-icon': isDarkMode() && category.title === 'DevOps & Outils',
+                  'devops-light-icon': !isDarkMode() && category.title === 'DevOps & Outils'
+                }"
+              />
+              <span class="accent-underline">{{ category.title }}</span>
+            </h3>
+          </div>
+          <div class="p-6 space-y-4">
+            <p class="text-text">{{ category.description }}</p>
+
+            <div class="mt-7">
+              <h4 class="text-lg font-medium text-accent mb-3">Technologies :</h4>
+              <div class="flex flex-wrap gap-3 justify-center">
+                @for (skill of category.skills; track skill.name) {
+                  <div class="flex items-center border-1 border-accent rounded-full px-3 py-1.5 transition-transform duration-300 hover:scale-105">
+                    <div class="rounded-full p-1 mr-2">
+                      <img
+                        ngSrc="{{ skill.icon }}"
+                        alt="{{ skill.name }}"
+                        width="20"
+                        height="20"
+                        class="w-6 h-6"
+                      />
+                    </div>
+                    <span class="text-text text-sm font-medium">{{ skill.name }}</span>
+                  </div>
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
