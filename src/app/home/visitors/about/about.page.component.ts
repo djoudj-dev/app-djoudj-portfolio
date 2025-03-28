@@ -9,10 +9,8 @@ interface Skill {
 
 @Component({
   selector: 'app-about-page',
-  standalone: true,
   imports: [NgOptimizedImage],
-  templateUrl: './about.page.component.html',
-  styleUrl: './about.page.component.css'
+  templateUrl: './about.page.component.html'
 })
 export class AboutPageComponent {
   // Experience section data
