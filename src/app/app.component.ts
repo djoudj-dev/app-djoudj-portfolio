@@ -3,12 +3,13 @@ import { RouterOutlet, Router, NavigationEnd } from '@angular/router';
 import { NavbarSmartComponent } from './core/components/navbar/navbar.smart.component';
 import { Title, Meta } from '@angular/platform-browser';
 import { filter } from 'rxjs/operators';
+import { FooterSmartComponent } from './core/components/footer/footer.smart.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   standalone: true,
-  imports: [NavbarSmartComponent, RouterOutlet]
+  imports: [NavbarSmartComponent, RouterOutlet, FooterSmartComponent]
 })
 export class AppComponent implements OnInit {
   title = 'Julien NÉDELLEC - Développeur d\'applications web et web mobile';
