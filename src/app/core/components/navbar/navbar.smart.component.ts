@@ -1,5 +1,6 @@
-import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { CommonModule, NgOptimizedImage, ViewportScroller } from '@angular/common';
 import { Component, ElementRef, OnDestroy, signal } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -12,16 +13,44 @@ export class NavbarSmartComponent implements OnDestroy {
   private readonly themeKey = 'theme';
 
   menuItems = [
-    { label: 'Home', href: '#' },
-    { label: 'About', href: '#' },
-    { label: 'Projects', href: '#' },
-    { label: 'Stacks', href: '#' },
-    { label: 'Contact', href: '#' }
+    { label: 'Accueil', routerLink: '/', fragment: 'accueil', icon: 'icons/icons_navbar/menu_home.svg' },
+    { label: 'A propos', routerLink: '/', fragment: 'about', icon: 'icons/icons_navbar/menu_about.svg' },
+    { label: 'Stacks', routerLink: '/', fragment: 'skills', icon: 'icons/icons_navbar/menu_stack.svg' },
+    { label: 'Projets', routerLink: '/', fragment: '', icon: 'icons/icons_navbar/menu_project.svg' },
+    { label: 'Contact', routerLink: '/', fragment: '', icon: 'icons/icons_navbar/menu_contact.svg' }
   ];
 
-  constructor(private elementRef: ElementRef) {
+  constructor(
+    private elementRef: ElementRef,
+    private viewportScroller: ViewportScroller,
+    private router: Router
+  ) {
     this.loadTheme();
     document.addEventListener('click', this.handleOutsideClick);
+  }
+
+  scrollToSection(fragment: string): void {
+    // If fragment is empty, just navigate to home page
+    if (!fragment) {
+      this.router.navigate(['/']);
+      this.closeMenu();
+      return;
+    }
+
+    // First navigate to the home page if not already there
+    if (this.router.url !== '/') {
+      this.router.navigate(['/'], { fragment }).then(() => {
+        // After navigation, scroll to the element
+        setTimeout(() => {
+          this.viewportScroller.scrollToAnchor(fragment);
+        }, 100);
+      });
+    } else {
+      // If already on home page, just scroll to the element
+      this.viewportScroller.scrollToAnchor(fragment);
+    }
+    // Close the mobile menu if it's open
+    this.closeMenu();
   }
 
   toggleTheme(): void {
