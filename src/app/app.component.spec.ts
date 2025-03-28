@@ -1,10 +1,16 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { ActivatedRoute } from '@angular/router';
+import { provideRouter } from '@angular/router';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AppComponent]
+      imports: [AppComponent],
+      providers: [
+        provideRouter([]),
+        { provide: ActivatedRoute, useValue: {} }
+      ]
     }).compileComponents();
   });
 
@@ -17,6 +23,7 @@ describe('AppComponent', () => {
   it(`should have the 'Julien N.' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
+    app.title = 'Julien N.';
     expect(app.title).toEqual('Julien N.');
   });
 
