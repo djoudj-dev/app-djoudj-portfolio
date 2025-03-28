@@ -1,5 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { NgClass, NgOptimizedImage } from '@angular/common';
+import { ThemeService } from '../../../shared/services/theme.service';
 
 // Skill interface
 interface Skill {
@@ -49,9 +50,18 @@ interface SkillCategory {
   `
 })
 export class SkillsPageComponent {
-  // Check if dark mode is enabled
+  /**
+   * Constructor injects the theme service
+   * @param themeService Service to manage theme preferences
+   */
+  constructor(public themeService: ThemeService) {}
+
+  /**
+   * Check if dark mode is enabled
+   * @returns True if dark mode is enabled, false otherwise
+   */
   isDarkMode(): boolean {
-    return document.documentElement.getAttribute('data-theme') === 'dark';
+    return this.themeService.isDarkMode();
   }
 
   // Frontend skills
