@@ -12,11 +12,11 @@ interface MenuItem {
 
 @Component({
   selector: 'app-navbar',
-  templateUrl: './navbar.smart.component.html',
+  templateUrl: './navbar.component.html',
   imports: [CommonModule, NgOptimizedImage, RouterModule],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class NavbarSmartComponent implements OnDestroy, AfterViewInit {
+export class NavbarComponent implements OnDestroy, AfterViewInit {
 
   isMenuOpen = signal<boolean>(false);
 

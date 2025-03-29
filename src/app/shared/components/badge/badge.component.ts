@@ -40,7 +40,7 @@ export enum BadgeStatus {
   </div>`,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class BadgeDumbComponent {
+export class BadgeComponent {
   /** Expose l'énumération BadgeStatus au template */
   BadgeStatus = BadgeStatus;
 

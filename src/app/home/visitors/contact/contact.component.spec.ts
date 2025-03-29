@@ -4,21 +4,21 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NgClass, NgOptimizedImage } from '@angular/common';
 import { ThemeService } from '../../../shared/services/theme.service';
 
-import { ContactPageComponent } from './contact.page.component';
+import { ContactComponent } from './contact.component';
 
-describe('ContactPageComponent', () => {
-  let component: ContactPageComponent;
-  let fixture: ComponentFixture<ContactPageComponent>;
+describe('ContactComponent', () => {
+  let component: ContactComponent;
+  let fixture: ComponentFixture<ContactComponent>;
   let themeService: ThemeService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ContactPageComponent, ReactiveFormsModule, NgClass, NgOptimizedImage],
+      imports: [ContactComponent, ReactiveFormsModule, NgClass, NgOptimizedImage],
       providers: [ThemeService]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ContactPageComponent);
+    fixture = TestBed.createComponent(ContactComponent);
     component = fixture.componentInstance;
     themeService = TestBed.inject(ThemeService);
     fixture.detectChanges();

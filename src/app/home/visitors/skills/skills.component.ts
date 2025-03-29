@@ -25,10 +25,10 @@ interface SkillCategory {
  * Affiche les différentes catégories de compétences techniques organisées par domaine.
  */
 @Component({
-  selector: 'app-skills-page',
+  selector: 'app-skills',
   standalone: true,
   imports: [NgOptimizedImage, NgClass],
-  templateUrl: './skills.page.component.html',
+  templateUrl: './skills.component.html',
   styles: `
     .frontend-dark-icon {
       content: url('/icons/icons_stacks/frontend-dark.svg');
@@ -56,7 +56,7 @@ interface SkillCategory {
     }
   `
 })
-export class SkillsPageComponent {
+export class SkillsComponent {
   /**
    * Constructeur qui injecte le service de thème
    * @param themeService Service pour gérer les préférences de thème
@@ -74,7 +74,7 @@ export class SkillsPageComponent {
   /** Compétences frontend */
   frontendSkills = signal<SkillCategory>({
     title: 'Frontend',
-    description: 'Technologies et frameworks pour le développement d’interfaces utilisateur modernes, réactives et accessibles, garantissant une expérience fluide et ergonomique.',
+    description: 'Technologies et frameworks pour le développement d\'interfaces utilisateur modernes, réactives et accessibles, garantissant une expérience fluide et ergonomique.',
     icon: '/icons/icons_stacks/frontend-light.svg',
     skills: [
       { name: 'Angular', icon: '/icons/logo/angular.svg' },
@@ -112,7 +112,7 @@ export class SkillsPageComponent {
   /** Compétences DevOps et outils */
   devopsSkills = signal<SkillCategory>({
     title: 'DevOps & Outils',
-    description: 'Ensemble d’outils et de technologies facilitant l’automatisation, le déploiement, la gestion de projet et l’amélioration des workflows de développement.',
+    description: 'Ensemble d\'outils et de technologies facilitant l\'automatisation, le déploiement, la gestion de projet et l\'amélioration des workflows de développement.',
     icon: '/icons/icons_stacks/devops-light.svg',
     skills: [
       { name: 'Docker', icon: '/icons/logo/docker.svg' },

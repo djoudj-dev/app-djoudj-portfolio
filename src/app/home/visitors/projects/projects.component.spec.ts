@@ -5,14 +5,14 @@ import { NgOptimizedImage } from '@angular/common';
 import { signal } from '@angular/core';
 import { vi, Mock } from 'vitest';
 
-import { ProjectsPageComponent } from './projects.page.component';
+import { ProjectsComponent } from './projects.component';
 import { ThemeService } from '../../../shared/services/theme.service';
 import { ProjectsService } from '../../../shared/services/projects.service';
 import { Project } from '../../../shared/models/project.model';
 
-describe('ProjectsPageComponent', () => {
-  let component: ProjectsPageComponent;
-  let fixture: ComponentFixture<ProjectsPageComponent>;
+describe('ProjectsComponent', () => {
+  let component: ProjectsComponent;
+  let fixture: ComponentFixture<ProjectsComponent>;
   let themeService: ThemeService & { getTheme: Mock, isDarkMode: Mock };
   let projectsService: ProjectsService & { searchProjects: Mock, getProjects: Mock };
 
@@ -55,7 +55,7 @@ describe('ProjectsPageComponent', () => {
     };
 
     await TestBed.configureTestingModule({
-      imports: [ProjectsPageComponent, FormsModule, NgOptimizedImage],
+      imports: [ProjectsComponent, FormsModule, NgOptimizedImage],
       providers: [
         { provide: ThemeService, useValue: themeSpy },
         { provide: ProjectsService, useValue: projectsSpy }
@@ -63,7 +63,7 @@ describe('ProjectsPageComponent', () => {
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ProjectsPageComponent);
+    fixture = TestBed.createComponent(ProjectsComponent);
     component = fixture.componentInstance;
     themeService = TestBed.inject(ThemeService) as ThemeService & { getTheme: Mock, isDarkMode: Mock };
     projectsService = TestBed.inject(ProjectsService) as ProjectsService & { searchProjects: Mock, getProjects: Mock };

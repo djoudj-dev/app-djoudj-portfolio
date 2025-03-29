@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-terms',
+  selector: 'app-privacy',
   imports: [CommonModule],
-  templateUrl: './terms.page.component.html'
+  templateUrl: './privacy.component.html'
 })
-export class TermsPageComponent {
+export class PrivacyComponent {
   // Add any component logic here
 }

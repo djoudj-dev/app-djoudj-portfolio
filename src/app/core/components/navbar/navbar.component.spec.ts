@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { vi } from 'vitest';
-import { NavbarSmartComponent } from './navbar.smart.component';
+import { NavbarComponent } from './navbar.component';
 import { ThemeService } from '../../../shared/services/theme.service';
 
-describe('NavbarSmartComponent', () => {
-  let component: NavbarSmartComponent;
-  let fixture: ComponentFixture<NavbarSmartComponent>;
+describe('NavbarComponent', () => {
+  let component: NavbarComponent;
+  let fixture: ComponentFixture<NavbarComponent>;
   let themeService: ThemeService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [NavbarSmartComponent]
+      imports: [NavbarComponent]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(NavbarSmartComponent);
+    fixture = TestBed.createComponent(NavbarComponent);
     component = fixture.componentInstance;
     themeService = TestBed.inject(ThemeService);
     fixture.detectChanges();
@@ -54,7 +54,7 @@ describe('NavbarSmartComponent', () => {
     localStorage.setItem('theme', 'dark');
     themeService.loadTheme(); // Force reload theme from localStorage
 
-    fixture = TestBed.createComponent(NavbarSmartComponent);
+    fixture = TestBed.createComponent(NavbarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
 

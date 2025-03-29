@@ -11,7 +11,7 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: '',
-    loadComponent: () => import('./home/home.page.component').then(m => m.HomePageComponent),
+    loadComponent: () => import('./home/home.component').then(m => m.HomeComponent),
     title: 'Portfolio de Djoudj',
     pathMatch: 'full'
   },
@@ -37,17 +37,17 @@ export const routes: Routes = [
   },
   {
     path: 'legal/privacy',
-    loadComponent: () => import('./legal/privacy/privacy.page.component').then(m => m.PrivacyPageComponent),
+    loadComponent: () => import('./legal/privacy/privacy.component').then(m => m.PrivacyComponent),
     title: 'Politique de Confidentialité'
   },
   {
     path: 'legal/terms',
-    loadComponent: () => import('./legal/terms/terms.page.component').then(m => m.TermsPageComponent),
+    loadComponent: () => import('./legal/terms/terms.component').then(m => m.TermsComponent),
     title: 'Conditions Générales d\'Utilisation'
   },
   {
     path: 'legal/notice',
-    loadComponent: () => import('./legal/notice/notice.page.component').then(m => m.NoticePageComponent),
+    loadComponent: () => import('./legal/notice/notice.component').then(m => m.NoticeComponent),
     title: 'Mentions Légales'
   }
 ];

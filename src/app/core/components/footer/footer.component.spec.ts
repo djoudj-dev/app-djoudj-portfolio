@@ -4,18 +4,18 @@ import { ViewportScroller } from '@angular/common';
 import { By } from '@angular/platform-browser';
 import { vi } from 'vitest';
 
-import { FooterSmartComponent } from './footer.smart.component';
+import { FooterComponent } from './footer.component';
 
-describe('FooterSmartComponent', () => {
-  let component: FooterSmartComponent;
-  let fixture: ComponentFixture<FooterSmartComponent>;
+describe('FooterComponent', () => {
+  let component: FooterComponent;
+  let fixture: ComponentFixture<FooterComponent>;
   let router: Router;
   let viewportScroller: ViewportScroller;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        FooterSmartComponent
+        FooterComponent
       ],
       providers: [
         provideRouter([])
@@ -23,7 +23,7 @@ describe('FooterSmartComponent', () => {
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(FooterSmartComponent);
+    fixture = TestBed.createComponent(FooterComponent);
     component = fixture.componentInstance;
     router = TestBed.inject(Router);
     viewportScroller = TestBed.inject(ViewportScroller);

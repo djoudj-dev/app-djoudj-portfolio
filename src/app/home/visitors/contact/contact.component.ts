@@ -37,11 +37,11 @@ interface SocialLink {
  * et le formulaire de contact.
  */
 @Component({
-  selector: 'app-contact-page',
+  selector: 'app-contact',
   imports: [ReactiveFormsModule, NgClass, NgOptimizedImage],
-  templateUrl: './contact.page.component.html'
+  templateUrl: './contact.component.html'
 })
-export class ContactPageComponent {
+export class ContactComponent {
   /** Formulaire de contact */
   contactForm: FormGroup;
   /** Indique si le formulaire a été soumis */

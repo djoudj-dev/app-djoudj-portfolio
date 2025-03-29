@@ -1,12 +1,12 @@
 import { NgOptimizedImage, ViewportScroller } from '@angular/common';
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { BadgeDumbComponent } from '../shared/components/badge/badge.dumb.component';
-import { ButtonDumbComponent } from '../shared/components/button/button.dumb.component';
-import { AboutPageComponent } from './visitors/about/about.page.component';
-import { SkillsPageComponent } from './visitors/skills/skills.page.component';
-import { ProjectsPageComponent } from './visitors/projects/projects.page.component';
-import { ContactPageComponent } from './visitors/contact/contact.page.component';
+import { BadgeComponent } from '../shared/components/badge/badge.component';
+import { ButtonComponent } from '../shared/components/button/button.component';
+import { AboutComponent } from './visitors/about/about.component';
+import { SkillsComponent } from './visitors/skills/skills.component';
+import { ProjectsComponent } from './visitors/projects/projects.component';
+import { ContactComponent } from './visitors/contact/contact.component';
 import { ThemeService } from '../shared/services/theme.service';
 
 /**
@@ -16,18 +16,18 @@ import { ThemeService } from '../shared/services/theme.service';
  */
 @Component({
   imports: [
-    BadgeDumbComponent,
-    ButtonDumbComponent,
+    BadgeComponent,
+    ButtonComponent,
     NgOptimizedImage,
     RouterOutlet,
-    AboutPageComponent,
-    SkillsPageComponent,
-    ProjectsPageComponent,
-    ContactPageComponent
+    AboutComponent,
+    SkillsComponent,
+    ProjectsComponent,
+    ContactComponent
   ],
-  templateUrl: './home.page.component.html'
+  templateUrl: './home.component.html'
 })
-export class HomePageComponent {
+export class HomeComponent {
   /** Titre principal de la page d'accueil */
   title = signal<string>('NÉDELLEC Julien');
 

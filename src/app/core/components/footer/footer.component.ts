@@ -32,10 +32,10 @@ interface LegalItem {
   selector: 'app-footer',
   standalone: true,
   imports: [CommonModule, RouterModule],
-  templateUrl: './footer.smart.component.html',
+  templateUrl: './footer.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class FooterSmartComponent implements AfterViewInit {
+export class FooterComponent implements AfterViewInit {
 
   /** Liste des éléments de raccourci affichés dans le pied de page */
   shortcutItems: ShortcutItem[] = [

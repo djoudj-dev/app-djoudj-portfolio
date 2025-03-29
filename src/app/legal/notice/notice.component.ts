@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-privacy',
+  selector: 'app-notice',
   imports: [CommonModule],
-  templateUrl: './privacy.page.component.html'
+  templateUrl: './notice.component.html'
 })
-export class PrivacyPageComponent {
+export class NoticeComponent {
   // Add any component logic here
 }

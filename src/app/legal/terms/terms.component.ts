@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-notice',
+  selector: 'app-terms',
   imports: [CommonModule],
-  templateUrl: './notice.page.component.html'
+  templateUrl: './terms.component.html'
 })
-export class NoticePageComponent {
+export class TermsComponent {
   // Add any component logic here
 }

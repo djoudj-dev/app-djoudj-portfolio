@@ -4,18 +4,18 @@ import { NgOptimizedImage, ViewportScroller } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { vi, Mock } from 'vitest';
 
-import { HomePageComponent } from './home.page.component';
+import { HomeComponent } from './home.component';
 import { ThemeService } from '../shared/services/theme.service';
-import { BadgeDumbComponent } from '../shared/components/badge/badge.dumb.component';
-import { ButtonDumbComponent } from '../shared/components/button/button.dumb.component';
-import { AboutPageComponent } from './visitors/about/about.page.component';
-import { SkillsPageComponent } from './visitors/skills/skills.page.component';
-import { ProjectsPageComponent } from './visitors/projects/projects.page.component';
-import { ContactPageComponent } from './visitors/contact/contact.page.component';
+import { BadgeComponent } from '../shared/components/badge/badge.component';
+import { ButtonComponent } from '../shared/components/button/button.component';
+import { AboutComponent } from './visitors/about/about.component';
+import { SkillsComponent } from './visitors/skills/skills.component';
+import { ProjectsComponent } from './visitors/projects/projects.component';
+import { ContactComponent } from './visitors/contact/contact.component';
 
-describe('HomePageComponent', () => {
-  let component: HomePageComponent;
-  let fixture: ComponentFixture<HomePageComponent>;
+describe('HomeComponent', () => {
+  let component: HomeComponent;
+  let fixture: ComponentFixture<HomeComponent>;
   let themeService: ThemeService & { isDarkMode: Mock };
   let viewportScroller: { scrollToAnchor: Mock };
 
@@ -31,15 +31,15 @@ describe('HomePageComponent', () => {
 
     await TestBed.configureTestingModule({
       imports: [
-        HomePageComponent,
+        HomeComponent,
         NgOptimizedImage,
         RouterOutlet,
-        BadgeDumbComponent,
-        ButtonDumbComponent,
-        AboutPageComponent,
-        SkillsPageComponent,
-        ProjectsPageComponent,
-        ContactPageComponent
+        BadgeComponent,
+        ButtonComponent,
+        AboutComponent,
+        SkillsComponent,
+        ProjectsComponent,
+        ContactComponent
       ],
       providers: [
         { provide: ThemeService, useValue: themeSpy },
@@ -48,7 +48,7 @@ describe('HomePageComponent', () => {
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(HomePageComponent);
+    fixture = TestBed.createComponent(HomeComponent);
     component = fixture.componentInstance;
     themeService = TestBed.inject(ThemeService) as ThemeService & { isDarkMode: Mock };
     viewportScroller = TestBed.inject(ViewportScroller) as unknown as { scrollToAnchor: Mock };
@@ -156,12 +156,12 @@ describe('HomePageComponent', () => {
     });
 
     it('should render download CV button', () => {
-      const buttonElement = fixture.debugElement.query(By.css('button[aria-label="Télécharger mon CV"]'));
+      const buttonElement = fixture.debugElement.query(By.css('app-button[aria-label="Télécharger mon CV"]'));
       expect(buttonElement).toBeTruthy();
     });
 
     it('should render projects button', () => {
-      const buttonElement = fixture.debugElement.query(By.css('button[aria-label="Découvrir mes projets"]'));
+      const buttonElement = fixture.debugElement.query(By.css('app-button[aria-label="Découvrir mes projets"]'));
       expect(buttonElement).toBeTruthy();
     });
   });
@@ -169,18 +169,18 @@ describe('HomePageComponent', () => {
   describe('User Interactions', () => {
     it('should call downloadCV when CV button is clicked', () => {
       const spy = vi.spyOn(component, 'downloadCV');
-      const buttonElement = fixture.debugElement.query(By.css('button[aria-label="Télécharger mon CV"]')).nativeElement;
+      const buttonElement = fixture.debugElement.query(By.css('app-button[aria-label="Télécharger mon CV"]'));
 
-      buttonElement.click();
+      buttonElement.triggerEventHandler('buttonClick', null);
 
       expect(spy).toHaveBeenCalled();
     });
 
     it('should call scrollToProjects when projects button is clicked', () => {
       const spy = vi.spyOn(component, 'scrollToProjects');
-      const buttonElement = fixture.debugElement.query(By.css('button[aria-label="Découvrir mes projets"]')).nativeElement;
+      const buttonElement = fixture.debugElement.query(By.css('app-button[aria-label="Découvrir mes projets"]'));
 
-      buttonElement.click();
+      buttonElement.triggerEventHandler('buttonClick', null);
 
       expect(spy).toHaveBeenCalled();
     });

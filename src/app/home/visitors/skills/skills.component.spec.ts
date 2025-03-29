@@ -3,12 +3,12 @@ import { By } from '@angular/platform-browser';
 import { NgOptimizedImage, NgClass } from '@angular/common';
 import { vi, Mock } from 'vitest';
 
-import { SkillsPageComponent } from './skills.page.component';
+import { SkillsComponent } from './skills.component';
 import { ThemeService } from '../../../shared/services/theme.service';
 
-describe('SkillsPageComponent', () => {
-  let component: SkillsPageComponent;
-  let fixture: ComponentFixture<SkillsPageComponent>;
+describe('SkillsComponent', () => {
+  let component: SkillsComponent;
+  let fixture: ComponentFixture<SkillsComponent>;
   let themeService: ThemeService & { isDarkMode: Mock };
 
   beforeEach(async () => {
@@ -18,14 +18,14 @@ describe('SkillsPageComponent', () => {
     };
 
     await TestBed.configureTestingModule({
-      imports: [SkillsPageComponent, NgOptimizedImage, NgClass],
+      imports: [SkillsComponent, NgOptimizedImage, NgClass],
       providers: [
         { provide: ThemeService, useValue: themeSpy }
       ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(SkillsPageComponent);
+    fixture = TestBed.createComponent(SkillsComponent);
     component = fixture.componentInstance;
     themeService = TestBed.inject(ThemeService) as ThemeService & { isDarkMode: Mock };
     fixture.detectChanges();
@@ -39,7 +39,7 @@ describe('SkillsPageComponent', () => {
     it('should have frontendSkills with correct structure and data', () => {
       const frontendSkills = component.frontendSkills();
       expect(frontendSkills.title).toBe('Frontend');
-      expect(frontendSkills.description).toContain('Technologies et frameworks pour le développement d’interfaces utilisateur modernes, réactives et accessibles, garantissant une expérience fluide et ergonomique.');
+      expect(frontendSkills.description).toContain('Technologies et frameworks pour le développement d\'interfaces utilisateur modernes, réactives et accessibles, garantissant une expérience fluide et ergonomique.');
       expect(frontendSkills.skills.length).toBe(4);
       expect(frontendSkills.skills[0].name).toBe('Angular');
       expect(frontendSkills.skills[0].icon).toBe('/icons/logo/angular.svg');
@@ -66,7 +66,7 @@ describe('SkillsPageComponent', () => {
     it('should have devopsSkills with correct structure and data', () => {
       const devopsSkills = component.devopsSkills();
       expect(devopsSkills.title).toBe('DevOps & Outils');
-      expect(devopsSkills.description).toContain('Ensemble d’outils et de technologies facilitant l’automatisation, le déploiement, la gestion de projet et l’amélioration des workflows de développement.');
+      expect(devopsSkills.description).toContain('Ensemble d\'outils et de technologies facilitant l\'automatisation, le déploiement, la gestion de projet et l\'amélioration des workflows de développement.');
       expect(devopsSkills.skills.length).toBe(5);
       expect(devopsSkills.skills[0].name).toBe('Docker');
       expect(devopsSkills.skills[0].icon).toBe('/icons/logo/docker.svg');
@@ -115,10 +115,10 @@ describe('SkillsPageComponent', () => {
     it('should render category descriptions correctly', () => {
       const descriptions = fixture.debugElement.queryAll(By.css('.p-6 p'));
       expect(descriptions.length).toBe(4);
-      expect(descriptions[0].nativeElement.textContent).toContain('Technologies et frameworks pour le développement d’interfaces utilisateur modernes, réactives et accessibles, garantissant une expérience fluide et ergonomique.');
+      expect(descriptions[0].nativeElement.textContent).toContain('Technologies et frameworks pour le développement d\'interfaces utilisateur modernes, réactives et accessibles, garantissant une expérience fluide et ergonomique.');
       expect(descriptions[1].nativeElement.textContent).toContain('Frameworks et technologies permettant de concevoir des API');
       expect(descriptions[2].nativeElement.textContent).toContain('Solutions de stockage et de gestion des données');
-      expect(descriptions[3].nativeElement.textContent).toContain('Ensemble d’outils et de technologies facilitant l’automatisation, le déploiement, la gestion de projet et l’amélioration des workflows de développement.');
+      expect(descriptions[3].nativeElement.textContent).toContain('Ensemble d\'outils et de technologies facilitant l\'automatisation, le déploiement, la gestion de projet et l\'amélioration des workflows de développement.');
     });
 
     it('should render correct number of skills for each category', () => {

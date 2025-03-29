@@ -51,7 +51,7 @@ export type ButtonSize = 'sm' | 'md' | 'lg';
   `,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ButtonDumbComponent {
+export class ButtonComponent {
   /** Variante du bouton (primary, secondary, accent, outline, text) */
   variant = input<ButtonVariant>('primary');
 

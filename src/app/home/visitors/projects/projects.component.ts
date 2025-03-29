@@ -9,12 +9,12 @@ import { ProjectsService } from '../../../shared/services/projects.service';
  * Gère l'affichage et le filtrage des projets dans le portfolio.
  */
 @Component({
-  selector: 'app-projects-page',
+  selector: 'app-projects',
   imports: [FormsModule, NgOptimizedImage],
-  templateUrl: './projects.page.component.html',
+  templateUrl: './projects.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ProjectsPageComponent {
+export class ProjectsComponent {
   /** Terme de recherche pour filtrer les projets */
   searchTerm = signal<string>('');
 
