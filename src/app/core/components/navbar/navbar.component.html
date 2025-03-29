@@ -1,0 +1,113 @@
+<nav class="bg-background shadow-sm fixed top-0 left-0 right-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+    <!-- Logo -->
+    <div class="flex flex-col items-start">
+      <h1 class="text-3xl text-text font-bold">Julien<span class="text-accent">.</span>N</h1>
+    </div>
+
+    <!-- Navigation principale -->
+    <div class="hidden lg:flex flex-grow justify-center">
+      <ul class="flex space-x-6">
+        <li>
+          <a
+            (click)="scrollToSection('accueil')"
+            class="flex items-center text-text hover:text-accent transition duration-200 relative group active-link cursor-pointer"
+          >
+            <img [ngSrc]="'icons/icons_navbar/menu_home.svg'" alt="Home" class="mr-2 w-5 h-5" width="20" height="20" />
+            <span>Accueil</span>
+            <span
+              class="absolute left-0 bottom-[-2px] w-full h-[2px] bg-accent transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"
+            ></span>
+          </a>
+        </li>
+        <li>
+          <a (click)="scrollToSection('about')" class="flex items-center text-text hover:text-accent transition duration-200 relative group cursor-pointer">
+            <img [ngSrc]="'icons/icons_navbar/menu_about.svg'" alt="About" class="mr-2 w-5 h-5" width="20" height="20" />
+            <span>A propos</span>
+            <span
+              class="absolute left-0 bottom-[-2px] w-full h-[2px] bg-accent transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"
+            ></span>
+          </a>
+        </li>
+        <li>
+          <a (click)="scrollToSection('skills')" class="flex items-center text-text hover:text-accent transition duration-200 relative group cursor-pointer">
+            <img [ngSrc]="'icons/icons_navbar/menu_stack.svg'" alt="Stacks" class="mr-2 w-5 h-5" width="20" height="20" />
+            <span>Stacks</span>
+            <span
+              class="absolute left-0 bottom-[-2px] w-full h-[2px] bg-accent transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"
+            ></span>
+          </a>
+        </li>
+        <li>
+          <a (click)="scrollToSection('projects')" class="flex items-center text-text hover:text-accent transition duration-200 relative group cursor-pointer">
+            <img [ngSrc]="'icons/icons_navbar/menu_project.svg'" alt="Projects" class="mr-2 w-5 h-5" width="20" height="20" />
+            <span>Projets</span>
+            <span
+              class="absolute left-0 bottom-[-2px] w-full h-[2px] bg-accent transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"
+            ></span>
+          </a>
+        </li>
+
+        <!-- <li>
+          <a href="#" class="flex items-center text-text hover:text-accent transition duration-200 relative group">
+            <img [ngSrc]="'icons/icons_navbar/menu_blog.svg'" alt="Blog" class="mr-2 w-5 h-5" width="20" height="20" />
+            <span>Blog</span>
+            <span
+              class="absolute left-0 bottom-[-2px] w-full h-[2px] bg-accent transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"
+            ></span>
+          </a>
+        </li> -->
+        <li>
+          <a (click)="scrollToSection('contact')" class="flex items-center text-text hover:text-accent transition duration-200 relative group cursor-pointer">
+            <img [ngSrc]="'icons/icons_navbar/menu_contact.svg'" alt="Contact" class="mr-2 w-5 h-5" width="20" height="20" />
+            <span>Contact</span>
+            <span
+              class="absolute left-0 bottom-[-2px] w-full h-[2px] bg-accent transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"
+            ></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Icônes Mode Sombre / Clair et Menu Mobile -->
+    <div class="flex items-center gap-2">
+      <button
+        class="p-2 rounded-full hover:bg-accent-400 dark:hover:bg-accent-400 transition-colors"
+        [attr.aria-label]="isDarkMode() ? 'Activer le mode clair' : 'Activer le mode sombre'"
+        (click)="toggleTheme()"
+      >
+        @if (!isDarkMode()) {
+          <img [ngSrc]="'/icons/icons_navbar/icon_sun.svg'" alt="Mode clair" class="w-6 h-6" height="24" width="24" />
+        } @else {
+          <img [ngSrc]="'/icons/icons_navbar/icon_moon.svg'" alt="Mode sombre" class="w-6 h-6" height="24" width="24" />
+        }
+      </button>
+      <!-- Menu mobile -->
+      <button
+        class="lg:hidden p-2 focus:outline-none transition-transform duration-300 rounded-full hover:bg-accent-400"
+        aria-label="Menu"
+        (click)="toggleMenu()"
+      >
+        <img
+          alt="Menu"
+          class="w-6 h-6 transform transition-transform duration-300"
+          [ngSrc]="isMenuOpen() ? '/icons/icons_navbar/close.svg' : '/icons/icons_navbar/menu.svg'"
+          [class.rotate-180]="isMenuOpen()"
+          width="24" height="24" />
+      </button>
+    </div>
+  </div>
+  <!-- Menu mobile déroulant -->
+  @if (isMenuOpen()) {
+    <div
+      class="lg:hidden flex flex-col items-center space-y-4 py-4 bg-background shadow-md transition-all duration-300"
+    >
+      @for (item of menuItems; track item) {
+        <a class="flex items-center text-text hover:text-accent transition duration-200 cursor-pointer" (click)="scrollToSection(item.fragment)">
+          <img *ngIf="item.icon" [ngSrc]="item.icon" [alt]="item.label" class="mr-2 w-5 h-5" width="20" height="20" />
+          <span>{{ item.label }}</span>
+        </a>
+      }
+    </div>
+  }
+</nav>
