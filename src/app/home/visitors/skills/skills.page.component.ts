@@ -29,7 +29,6 @@ interface SkillCategory {
   standalone: true,
   imports: [NgOptimizedImage, NgClass],
   templateUrl: './skills.page.component.html',
-  styleUrl: './skills.page.component.css',
   styles: `
     .frontend-dark-icon {
       content: url('/icons/icons_stacks/frontend-dark.svg');

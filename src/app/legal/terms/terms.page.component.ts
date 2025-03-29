@@ -3,10 +3,8 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-terms',
-  standalone: true,
   imports: [CommonModule],
-  templateUrl: './terms.page.component.html',
-  styleUrl: './terms.page.component.css'
+  templateUrl: './terms.page.component.html'
 })
 export class TermsPageComponent {
   // Add any component logic here

@@ -10,10 +10,8 @@ import { ProjectsService } from '../../../shared/services/projects.service';
  */
 @Component({
   selector: 'app-projects-page',
-  standalone: true,
   imports: [FormsModule, NgOptimizedImage],
   templateUrl: './projects.page.component.html',
-  styleUrl: './projects.page.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProjectsPageComponent {
@@ -43,7 +41,7 @@ export class ProjectsPageComponent {
    * @returns Vrai si le mode sombre est activé, faux sinon
    */
   isDarkMode(): boolean {
-    return this.themeService.getTheme() === 'dark';
+    return this.themeService.isDarkMode();
   }
 
   /**

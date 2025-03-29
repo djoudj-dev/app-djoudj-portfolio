@@ -39,8 +39,7 @@ interface SocialLink {
 @Component({
   selector: 'app-contact-page',
   imports: [ReactiveFormsModule, NgClass, NgOptimizedImage],
-  templateUrl: './contact.page.component.html',
-  styleUrl: './contact.page.component.css'
+  templateUrl: './contact.page.component.html'
 })
 export class ContactPageComponent {
   /** Formulaire de contact */
