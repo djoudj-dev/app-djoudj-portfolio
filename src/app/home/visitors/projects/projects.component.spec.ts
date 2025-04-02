@@ -7,8 +7,8 @@ import { vi, Mock } from 'vitest';
 
 import { ProjectsComponent } from './projects.component';
 import { ThemeService } from '../../../shared/services/theme.service';
-import { ProjectsService } from '../../../shared/services/projects.service';
-import { Project } from '../../../shared/models/project.model';
+import { ProjectsService } from './service/projects.service';
+import { Project } from './models/project.model';
 
 describe('ProjectsComponent', () => {
   let component: ProjectsComponent;
