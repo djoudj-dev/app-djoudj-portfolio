@@ -3,6 +3,8 @@
     "angular.ng-template",
     "ms-ceintl.vscode-language-pack-fr",
     "nrwl.angular-console",
-    "dbaeumer.vscode-eslint"
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "firsttris.vscode-jest-runner"
   ]
 }
