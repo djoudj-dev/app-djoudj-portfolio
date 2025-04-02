@@ -1,24 +1,8 @@
-import { Component, signal } from '@angular/core';
+import { Component, computed } from '@angular/core';
 import { NgClass, NgOptimizedImage } from '@angular/common';
 import { ThemeService } from '../../../shared/services/theme.service';
-
-/**
- * Interface définissant une compétence technique.
- */
-interface Skill {
-  name: string;
-  icon: string;
-}
-
-/**
- * Interface définissant une catégorie de compétences techniques.
- */
-interface SkillCategory {
-  title: string;
-  description: string;
-  skills: Skill[];
-  icon: string;
-}
+import { SkillsService } from './service/skills.service';
+import { SkillCategory } from './models/skills.model';
 
 /**
  * Composant de la page des compétences.
@@ -58,10 +42,14 @@ interface SkillCategory {
 })
 export class SkillsComponent {
   /**
-   * Constructeur qui injecte le service de thème
+   * Constructeur qui injecte les services requis
    * @param themeService Service pour gérer les préférences de thème
+   * @param skillsService Service pour gérer les données des compétences
    */
-  constructor(public themeService: ThemeService) {}
+  constructor(
+    public themeService: ThemeService,
+    private skillsService: SkillsService
+  ) {}
 
   /**
    * Vérifie si le mode sombre est activé
@@ -71,63 +59,26 @@ export class SkillsComponent {
     return this.themeService.isDarkMode();
   }
 
+  /** Toutes les catégories de compétences */
+  skillCategories = computed(() => this.skillsService.getSkillsData()().categories);
+
   /** Compétences frontend */
-  frontendSkills = signal<SkillCategory>({
-    title: 'Frontend',
-    description: 'Technologies et frameworks pour le développement d\'interfaces utilisateur modernes, réactives et accessibles, garantissant une expérience fluide et ergonomique.',
-    icon: '/icons/icons_stacks/frontend-light.svg',
-    skills: [
-      { name: 'Angular', icon: '/icons/logo/angular.svg' },
-      { name: 'TypeScript', icon: '/icons/logo/typescript.svg' },
-      { name: 'JavaScript', icon: '/icons/logo/javascript.svg' },
-      { name: 'TailwindCSS', icon: '/icons/logo/tailwindcss.svg' }
-    ]
-  });
+  frontendSkills = computed(() =>
+    this.skillsService.getCategoryByTitle('Frontend') as SkillCategory
+  );
 
   /** Compétences backend */
-  backendSkills = signal<SkillCategory>({
-    title: 'Backend',
-    description: 'Frameworks et technologies permettant de concevoir des API performantes, évolutives et sécurisées pour des applications web et mobiles.',
-    icon: '/icons/icons_stacks/backend-light.svg',
-    skills: [
-      { name: 'NestJS', icon: '/icons/logo/nestjs.svg' },
-      { name: 'Node.js', icon: '/icons/logo/nodedotjs.svg' },
-      { name: 'Spring Boot', icon: '/icons/logo/springboot.svg' },
-      { name: 'Java', icon: '/icons/logo/java.svg' },
-    ]
-  });
+  backendSkills = computed(() =>
+    this.skillsService.getCategoryByTitle('Backend') as SkillCategory
+  );
 
   /** Compétences en bases de données */
-  databaseSkills = signal<SkillCategory>({
-    title: 'Base de données',
-    description: 'Solutions de stockage et de gestion des données, relationnelles et non relationnelles, adaptées aux besoins des applications modernes.',
-    icon: '/icons/icons_stacks/bdd-light.svg',
-    skills: [
-      { name: 'MongoDB', icon: '/icons/logo/mongodb.svg' },
-      { name: 'MySQL', icon: '/icons/logo/mysql.svg' },
-      { name: 'PostgreSQL', icon: '/icons/logo/postgresql.svg' }
-    ]
-  });
+  databaseSkills = computed(() =>
+    this.skillsService.getCategoryByTitle('Base de données') as SkillCategory
+  );
 
   /** Compétences DevOps et outils */
-  devopsSkills = signal<SkillCategory>({
-    title: 'DevOps & Outils',
-    description: 'Ensemble d\'outils et de technologies facilitant l\'automatisation, le déploiement, la gestion de projet et l\'amélioration des workflows de développement.',
-    icon: '/icons/icons_stacks/devops-light.svg',
-    skills: [
-      { name: 'Docker', icon: '/icons/logo/docker.svg' },
-      { name: 'Git', icon: '/icons/logo/git.svg' },
-      { name: 'VS Code', icon: '/icons/logo/vscode.svg' },
-      { name: 'WebStorm', icon: '/icons/logo/webstorm.svg' },
-      { name: 'IntelliJ', icon: '/icons/logo/intellijidea.svg' }
-    ]
-  });
-
-  /** Tableau de toutes les catégories de compétences pour faciliter l'itération */
-  skillCategories = signal<SkillCategory[]>([
-    this.frontendSkills(),
-    this.backendSkills(),
-    this.databaseSkills(),
-    this.devopsSkills()
-  ]);
+  devopsSkills = computed(() =>
+    this.skillsService.getCategoryByTitle('DevOps & Outils') as SkillCategory
+  );
 }
