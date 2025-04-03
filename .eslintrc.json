@@ -5,14 +5,14 @@
     {
       "files": ["*.spec.ts"],
       "parserOptions": {
-        "project": ["tsconfig.spec.json"]
+        "project": ["frontend/tsconfig.spec.json", "backend/tsconfig.spec.json", "backend-e2e/tsconfig.spec.json"]
       },
       "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended", "plugin:prettier/recommended"]
     },
     {
       "files": ["*.ts"],
       "parserOptions": {
-        "project": ["tsconfig.json"],
+        "project": ["frontend/tsconfig.json", "backend/tsconfig.json", "backend-e2e/tsconfig.json"],
         "createDefaultProgram": true
       },
       "globals": {
