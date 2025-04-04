@@ -11,11 +11,13 @@ export const PROJECTS_MOCK_DATA: ProjectsData = {
       title: 'Portfolio',
       description: 'Portfolio personnel présentant mes compétences, projets et expériences professionnelles. Développé avec Angular, TypeScript et TailwindCSS.',
       technologies: [
-        { name: 'Angular', icon: '/icons/logo/angular.svg' },
-        { name: 'TypeScript', icon: '/icons/logo/typescript.svg' },
-        { name: 'TailwindCSS', icon: '/icons/logo/tailwindcss.svg' }
+        { name: 'Angular', icon: '/icons/logo/angular.avif' },
+        { name: 'TypeScript', icon: '/icons/logo/typescript.avif' },
+        { name: 'TailwindCSS', icon: '/icons/logo/tailwindcss.avif' }
       ],
       imageUrl: '/images/projets/portfolio.webp',
+      imageWidth: 600,
+      imageHeight: 314,
       githubUrl: 'https://github.com/username/portfolio',
       date: '2023-12-15',
       category: ProjectCategory.WEB,
@@ -32,11 +34,13 @@ export const PROJECTS_MOCK_DATA: ProjectsData = {
       title: 'Application de Gestion de Tâches',
       description: 'Application web permettant de gérer des tâches avec fonctionnalités de création, modification et suppression.',
       technologies: [
-        { name: 'NestJS', icon: '/icons/logo/nestjs.svg' },
-        { name: 'Angular', icon: '/icons/logo/angular.svg' },
-        { name: 'MongoDB', icon: '/icons/logo/mongodb.svg' }
+        { name: 'NestJS', icon: '/icons/logo/nestjs.avif' },
+        { name: 'Angular', icon: '/icons/logo/angular.avif' },
+        { name: 'MongoDB', icon: '/icons/logo/mongodb.avif' }
       ],
-      imageUrl: '/images/projects/task-manager.webp',
+      imageUrl: '/images/projets/task-manager.webp',
+      imageWidth: 600,
+      imageHeight: 314,
       projectUrl: 'https://task-manager.example.com',
       githubUrl: 'https://github.com/username/task-manager',
       date: '2023-10-20',
@@ -54,11 +58,13 @@ export const PROJECTS_MOCK_DATA: ProjectsData = {
       title: 'API REST E-commerce',
       description: 'API REST pour une application e-commerce avec gestion des produits, utilisateurs et commandes.',
       technologies: [
-        { name: 'NestJS', icon: '/icons/logo/nestjs.svg' },
-        { name: 'PostgreSQL', icon: '/icons/logo/postgresql.svg' },
-        { name: 'Docker', icon: '/icons/logo/docker.svg' }
+        { name: 'NestJS', icon: '/icons/logo/nestjs.avif' },
+        { name: 'PostgreSQL', icon: '/icons/logo/postgresql.avif' },
+        { name: 'Docker', icon: '/icons/logo/docker.avif' }
       ],
-      imageUrl: '/images/projects/ecommerce-api.webp',
+      imageUrl: '/images/projets/ecommerce-api.webp',
+      imageWidth: 600,
+      imageHeight: 556,
       githubUrl: 'https://github.com/username/ecommerce-api',
       date: '2023-08-05',
       category: ProjectCategory.API,
@@ -83,11 +89,13 @@ export const PROJECTS_MOCK_DATA: ProjectsData = {
       title: 'Dashboard Analytics',
       description: 'Dashboard interactif pour visualiser des données analytiques avec graphiques et filtres.',
       technologies: [
-        { name: 'Angular', icon: '/icons/logo/angular.svg' },
-        { name: 'TypeScript', icon: '/icons/logo/typescript.svg' },
-        { name: 'Chart.js', icon: '/icons/logo/javascript.svg' }
+        { name: 'Angular', icon: '/icons/logo/angular.avif' },
+        { name: 'TypeScript', icon: '/icons/logo/typescript.avif' },
+        { name: 'Chart.js', icon: '/icons/logo/javascript.avif' }
       ],
-      imageUrl: '/images/projects/dashboard.webp',
+      imageUrl: '/images/projets/dashboard.webp',
+      imageWidth: 600,
+      imageHeight: 400,
       projectUrl: 'https://dashboard.example.com',
       date: '2023-11-10',
       category: ProjectCategory.WEB,

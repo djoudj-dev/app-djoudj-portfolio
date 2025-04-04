@@ -41,6 +41,8 @@ export interface Project {
   description: string;
   technologies: Technology[];
   imageUrl: string;
+  imageWidth?: number;
+  imageHeight?: number;
   projectUrl?: string;
   githubUrl?: string;
   date?: string;
