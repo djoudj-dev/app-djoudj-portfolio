@@ -45,15 +45,15 @@ export class ContactService {
 
     switch (title) {
       case 'Email':
-        return isDark ? '/icons/logo/mail-dark.svg' : '/icons/logo/mail-light.svg';
+        return isDark ? '/icons/logo/mail-dark.avif' : '/icons/logo/mail-light.avif';
       case 'Téléphone':
-        return isDark ? '/icons/logo/phone-dark.svg' : '/icons/logo/phone-light.svg';
+        return isDark ? '/icons/logo/phone-dark.avif' : '/icons/logo/phone-light.avif';
       case 'Localisation':
-        return isDark ? '/icons/logo/home-dark.svg' : '/icons/logo/home-light.svg';
+        return isDark ? '/icons/logo/home-dark.avif' : '/icons/logo/home-light.avif';
       case 'Réseaux sociaux':
-        return isDark ? '/icons/logo/rs-dark.svg' : '/icons/logo/rs-light.svg';
+        return isDark ? '/icons/logo/rs-dark.avif' : '/icons/logo/rs-light.avif';
       default:
-        return '/icons/logo/mail-light.svg'; // Fallback
+        return '/icons/logo/mail-light.avif'; // Fallback
     }
   }
 
@@ -67,11 +67,11 @@ export class ContactService {
 
     switch (socialName) {
       case 'GitHub':
-        return isDark ? '/icons/logo/github-dark.svg' : '/icons/logo/github-light.svg';
+        return isDark ? '/icons/logo/github-dark.avif' : '/icons/logo/github-light.avif';
       case 'LinkedIn':
-        return '/icons/logo/linkedin.svg'; // No theme-specific icons for LinkedIn yet
+        return '/icons/logo/linkedin.avif'; // No theme-specific icons for LinkedIn yet
       case 'X':
-        return '/icons/logo/x.svg'; // No theme-specific icons for X yet
+        return '/icons/logo/x.avif'; // No theme-specific icons for X yet
       default:
         return ''; // Fallback
     }
