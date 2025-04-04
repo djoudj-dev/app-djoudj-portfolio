@@ -1,0 +1,150 @@
+<div class="min-h-screen flex items-center justify-center bg-background px-4 py-12 sm:px-6 lg:px-8">
+  <div class="w-full max-w-md space-y-8">
+    <!-- En-tête -->
+    <div class="text-center">
+      <h2 class="mt-6 text-3xl font-bold tracking-tight text-text">
+        <span class="bg-gradient-to-l from-accent to-text text-gradient inline-block">
+          Bienvenue
+        </span>
+      </h2>
+      <p class="mt-2 text-sm text-secondary">
+        Connectez-vous à votre compte pour continuer
+      </p>
+    </div>
+
+    <!-- Formulaire -->
+    <form class="mt-8 space-y-6 animate-[fadeIn_0.5s_ease-in-out] motion-safe:transform motion-safe:opacity-100 motion-safe:translate-y-0" (ngSubmit)="onSubmit()">
+      <!-- Message d'erreur -->
+      @if (loginError()) {
+        <div class="rounded-md bg-red-50 dark:bg-[rgba(254,202,202,0.1)] p-4 mb-4">
+          <div class="flex">
+            <div class="flex-shrink-0">
+              <!-- Icône d'erreur -->
+              <svg class="h-5 w-5 text-red-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z" clip-rule="evenodd" />
+              </svg>
+            </div>
+            <div class="ml-3">
+              <h3 class="text-sm font-medium text-red-800 dark:text-[#f87171]">{{ loginError() }}</h3>
+            </div>
+          </div>
+        </div>
+      }
+
+      <div class="rounded-md shadow-sm space-y-4">
+        <!-- Champ email -->
+        <div>
+          <label for="email" class="block text-sm font-medium text-text">Adresse email</label>
+          <div class="mt-1">
+            <input
+              id="email"
+              name="email"
+              type="email"
+              autocomplete="email"
+              [ngModel]="email()"
+              (ngModelChange)="email.set($event)"
+              (blur)="markTouched('email')"
+              class="block w-full rounded-md border-0 py-2 px-3 text-text shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-accent focus:outline-none focus:shadow-[0_0_0_2px_var(--color-accent-100)] sm:text-sm sm:leading-6"
+              [class.ring-red-500]="!emailValid().valid && isTouched('email')"
+              placeholder="you@example.com"
+              required
+            >
+          </div>
+          @if (!emailValid().valid && isTouched('email')) {
+            <p class="mt-1 text-sm text-red-600 dark:text-[#ef4444]">
+              @if (emailValid().required) {
+                L'email est requis
+              } @else if (emailValid().email) {
+                Veuillez entrer une adresse email valide
+              }
+            </p>
+          }
+        </div>
+
+        <!-- Champ mot de passe -->
+        <div>
+          <label for="password" class="block text-sm font-medium text-text">Mot de passe</label>
+          <div class="mt-1">
+            <input
+              id="password"
+              name="password"
+              type="password"
+              autocomplete="current-password"
+              [ngModel]="password()"
+              (ngModelChange)="password.set($event)"
+              (blur)="markTouched('password')"
+              class="block w-full rounded-md border-0 py-2 px-3 text-text shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-accent focus:outline-none focus:shadow-[0_0_0_2px_var(--color-accent-100)] sm:text-sm sm:leading-6"
+              [class.ring-red-500]="!passwordValid().valid && isTouched('password')"
+              placeholder="••••••••"
+              required
+            >
+          </div>
+          @if (!passwordValid().valid && isTouched('password')) {
+            <p class="mt-1 text-sm text-red-600 dark:text-[#ef4444]">
+              @if (passwordValid().required) {
+                Le mot de passe est requis
+              } @else if (passwordValid().minlength) {
+                Le mot de passe doit contenir au moins 8 caractères
+              }
+            </p>
+          }
+        </div>
+      </div>
+
+      <!-- Se souvenir de moi et Mot de passe oublié -->
+      <div class="flex items-center justify-between">
+        <div class="flex items-center">
+          <input
+            id="remember-me"
+            name="remember-me"
+            type="checkbox"
+            [ngModel]="rememberMe()"
+            (ngModelChange)="rememberMe.set($event)"
+            class="h-4 w-4 rounded border-gray-300 text-accent focus:ring-accent"
+          >
+          <label for="remember-me" class="ml-2 block text-sm text-secondary">Se souvenir de moi</label>
+        </div>
+
+        <div class="text-sm">
+          <a href="#" class="text-accent hover:text-accent-400 accent-underline">Mot de passe oublié ?</a>
+        </div>
+      </div>
+
+      <!-- Bouton de connexion -->
+      <div>
+        <button
+          type="submit"
+          [disabled]="!formValid() || isSubmitting()"
+          class="group relative flex w-full justify-center rounded-md bg-accent py-2 px-3 text-sm font-semibold text-white hover:bg-accent-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:opacity-50 disabled:cursor-not-allowed"
+        >
+          @if (isSubmitting()) {
+            <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+              <!-- Indicateur de chargement -->
+              <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+            </span>
+            Connexion en cours...
+          } @else {
+            <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+              <!-- Icône de cadenas -->
+              <svg class="h-5 w-5 text-white" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z" clip-rule="evenodd" />
+              </svg>
+            </span>
+            Se connecter
+          }
+        </button>
+      </div>
+    </form>
+
+    <!-- Lien d'inscription -->
+    <div class="mt-6 text-center">
+      <p class="text-sm text-secondary">
+        Vous n'avez pas de compte ?
+        <a routerLink="/register" class="text-accent hover:text-accent-400 accent-underline">S'inscrire</a>
+      </p>
+    </div>
+  </div>
+</div>
