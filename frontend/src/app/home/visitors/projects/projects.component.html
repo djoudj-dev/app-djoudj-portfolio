@@ -30,9 +30,9 @@
               <img
                 ngSrc="{{ project.imageUrl }}"
                 alt="{{ project.title }}"
-                [width]="project.imageWidth || 600"
-                [height]="project.imageHeight || 314"
-                class="max-w-full h-auto object-contain hover:scale-105 transition-transform duration-300"
+                [width]="project.imageWidth || 740"
+                [height]="project.imageHeight || 380"
+                class="w-full h-auto object-contain hover:scale-105 transition-transform duration-300"
                 decoding="async"
               />
             </div>
@@ -63,7 +63,7 @@
                           alt="{{ tech.name }}"
                           width="20"
                           height="20"
-                          class="w-5 h-5"
+                          class="w-5 h-auto object-contain"
                         />
                       </div>
                       <span class="text-sm text-text font-medium">{{ tech.name }}</span>
@@ -82,7 +82,7 @@
                       alt="GitHub"
                       width="24"
                       height="24"
-                      class="h-6 w-6 mr-1.5"
+                      class="h-6 w-auto object-contain mr-1.5"
                     />
                     Code
                   </a>
@@ -95,7 +95,7 @@
                       alt="Demo"
                       width="24"
                       height="24"
-                      class="h-6 w-6 mr-1.5"
+                      class="h-6 w-auto object-contain mr-1.5"
                     />
                     Demo
                   </a>

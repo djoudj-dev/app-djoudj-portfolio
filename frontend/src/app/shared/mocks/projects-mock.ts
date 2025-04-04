@@ -16,8 +16,6 @@ export const PROJECTS_MOCK_DATA: ProjectsData = {
         { name: 'TailwindCSS', icon: '/icons/logo/tailwindcss.avif' }
       ],
       imageUrl: '/images/projets/portfolio.webp',
-      imageWidth: 600,
-      imageHeight: 314,
       githubUrl: 'https://github.com/username/portfolio',
       date: '2023-12-15',
       category: ProjectCategory.WEB,
@@ -39,8 +37,6 @@ export const PROJECTS_MOCK_DATA: ProjectsData = {
         { name: 'MongoDB', icon: '/icons/logo/mongodb.avif' }
       ],
       imageUrl: '/images/projets/task-manager.webp',
-      imageWidth: 600,
-      imageHeight: 314,
       projectUrl: 'https://task-manager.example.com',
       githubUrl: 'https://github.com/username/task-manager',
       date: '2023-10-20',
@@ -63,8 +59,6 @@ export const PROJECTS_MOCK_DATA: ProjectsData = {
         { name: 'Docker', icon: '/icons/logo/docker.avif' }
       ],
       imageUrl: '/images/projets/ecommerce-api.webp',
-      imageWidth: 600,
-      imageHeight: 556,
       githubUrl: 'https://github.com/username/ecommerce-api',
       date: '2023-08-05',
       category: ProjectCategory.API,
@@ -94,8 +88,6 @@ export const PROJECTS_MOCK_DATA: ProjectsData = {
         { name: 'Chart.js', icon: '/icons/logo/javascript.avif' }
       ],
       imageUrl: '/images/projets/dashboard.webp',
-      imageWidth: 600,
-      imageHeight: 400,
       projectUrl: 'https://dashboard.example.com',
       date: '2023-11-10',
       category: ProjectCategory.WEB,
