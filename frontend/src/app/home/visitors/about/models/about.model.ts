@@ -9,6 +9,8 @@
 export interface Skill {
   name: string;
   icon: string;
+  iconWidth?: number;
+  iconHeight?: number;
 }
 
 /**

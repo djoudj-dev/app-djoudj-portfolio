@@ -26,4 +26,5 @@ export class AboutComponent {
 
   citation = computed<string>(() => this.aboutService.getCitation().text);
   citationAuthor = computed<string>(() => this.aboutService.getCitation().author);
+
 }
