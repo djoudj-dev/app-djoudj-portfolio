@@ -12,8 +12,8 @@
               <img
                 ngSrc="{{ category.icon }}"
                 alt="{{ category.title }}"
-                width="24"
-                height="24"
+                width="32"
+                height="32"
                 class="w-8 h-8 mr-2"
                 [ngClass]="{
                   'frontend-dark-icon': isDarkMode() && category.title === 'Frontend',
@@ -41,9 +41,10 @@
                       <img
                         ngSrc="{{ skill.icon }}"
                         alt="{{ skill.name }}"
-                        width="20"
-                        height="20"
-                        class="w-6 h-6"
+                        [width]="skill.iconWidth || 48"
+                        [height]="skill.iconHeight || 48"
+                        class="w-6 h-auto object-contain"
+                        [ngClass]="{'skill-icon-dark': isDarkMode(), 'skill-icon-light': !isDarkMode()}"
                       />
                     </div>
                     <span class="text-text text-sm font-medium">{{ skill.name }}</span>
