@@ -3,11 +3,12 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "nx serve",
+    "start": "nx serve frontend",
     "build": "nx build",
     "watch": "nx build --watch --configuration development",
     "test": "vitest",
-    "lint": "nx lint"
+    "lint": "nx lint",
+    "convert:svg": "./frontend/convert-scripts/convert.sh"
   },
   "private": true,
   "dependencies": {
@@ -26,6 +27,7 @@
     "postcss": "^8.5.3",
     "reflect-metadata": "^0.1.13",
     "rxjs": "~7.8.0",
+    "sharp": "^0.34.0",
     "tailwindcss": "^4.0.9",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
@@ -71,6 +73,7 @@
     "jsdom": "^22.0.0",
     "nx": "20.7.1",
     "prettier": "^3.2.5",
+    "sharp-cli": "^5.1.0",
     "ts-jest": "^29.1.0",
     "ts-node": "10.9.1",
     "typescript": "~5.7.2",
