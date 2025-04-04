@@ -14,7 +14,7 @@
                 alt="{{ category.title }}"
                 width="32"
                 height="32"
-                class="w-8 h-8 mr-2"
+                class="w-8 h-auto object-contain mr-2"
                 [ngClass]="{
                   'frontend-dark-icon': isDarkMode() && category.title === 'Frontend',
                   'frontend-light-icon': !isDarkMode() && category.title === 'Frontend',
