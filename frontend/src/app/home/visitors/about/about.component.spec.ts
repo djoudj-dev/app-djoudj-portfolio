@@ -39,7 +39,7 @@ describe('AboutComponent', () => {
       expect(firstSkill.name).toBeDefined();
       expect(firstSkill.icon).toBeDefined();
       expect(firstSkill.name).toBe('Angular');
-      expect(firstSkill.icon).toBe('/icons/logo/angular.svg');
+      expect(firstSkill.icon).toBe('/icons/logo/angular.avif');
     });
 
     it('should have career change properties defined', () => {

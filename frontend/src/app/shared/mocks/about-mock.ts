@@ -9,9 +9,9 @@ export const ABOUT_MOCK_DATA: AboutData = {
     main: 'Grâce à ma reconversion dans le développement web, j\'ai développé des compétences en conception de solutions modernes, en appliquant les meilleures pratiques pour garantir un code structuré, performant et maintenable.',
     details: 'Mon parcours m\'a permis de renforcer mes compétences en architecture logicielle, optimisation du code et développement full-stack, en intégrant des approches et technologies adaptées aux exigences actuelles.',
     skills: [
-      { name: 'Angular', icon: '/icons/logo/angular.svg' },
-      { name: 'NestJS', icon: '/icons/logo/nestjs.svg' },
-      { name: 'TailwindCSS', icon: '/icons/logo/tailwindcss.svg' }
+      { name: 'Angular', icon: '/icons/logo/angular.avif' },
+      { name: 'NestJS', icon: '/icons/logo/nestjs.avif' },
+      { name: 'TailwindCSS', icon: '/icons/logo/tailwindcss.avif' }
     ]
   },
   careerChange: {
