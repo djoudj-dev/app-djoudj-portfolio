@@ -23,11 +23,11 @@ export class NavbarComponent implements OnDestroy, AfterViewInit {
   private pendingFragment: string | null = null;
 
   menuItems: MenuItem[] = [
-    { label: 'Accueil', routerLink: '/', fragment: 'accueil', icon: 'icons/icons_navbar/menu_home.svg' },
-    { label: 'A propos', routerLink: '/about', fragment: 'about', icon: 'icons/icons_navbar/menu_about.svg' },
-    { label: 'Stacks', routerLink: '/skills', fragment: 'skills', icon: 'icons/icons_navbar/menu_stack.svg' },
-    { label: 'Projets', routerLink: '/projects', fragment: 'projects', icon: 'icons/icons_navbar/menu_project.svg' },
-    { label: 'Contact', routerLink: '/contact', fragment: 'contact', icon: 'icons/icons_navbar/menu_contact.svg' }
+    { label: 'Accueil', routerLink: '/', fragment: 'accueil', icon: 'icons/icons_navbar/menu_home.avif' },
+    { label: 'A propos', routerLink: '/about', fragment: 'about', icon: 'icons/icons_navbar/menu_about.avif' },
+    { label: 'Stacks', routerLink: '/skills', fragment: 'skills', icon: 'icons/icons_navbar/menu_stack.avif' },
+    { label: 'Projets', routerLink: '/projects', fragment: 'projects', icon: 'icons/icons_navbar/menu_project.avif' },
+    { label: 'Contact', routerLink: '/contact', fragment: 'contact', icon: 'icons/icons_navbar/menu_contact.avif' }
   ];
 
   constructor(
