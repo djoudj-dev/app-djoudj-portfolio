@@ -49,9 +49,9 @@
                         <img
                           [ngSrc]="getSocialIconPath(social)"
                           alt="{{ social.name }}"
-                          width="20"
-                          height="20"
-                          class="w-5 h-5"
+                          [width]="social.name === 'X' ? 20 : 20"
+                          [height]="social.name === 'X' ? 18 : 20"
+                          [ngClass]="{'w-5 h-auto object-contain': social.name === 'X', 'w-5 h-5': social.name !== 'X'}"
                         />
                       </a>
                     }

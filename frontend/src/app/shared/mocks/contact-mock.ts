@@ -36,7 +36,7 @@ export const CONTACT_MOCK_DATA: ContactData = {
   socialLinks: [
     {
       name: 'LinkedIn',
-      icon: '/icons/logo/linkedin.svg',
+      icon: '/icons/logo/linkedin.avif',
       url: 'https://www.linkedin.com/in/nedellec-julien/'
     },
     {
@@ -46,7 +46,7 @@ export const CONTACT_MOCK_DATA: ContactData = {
     },
     {
       name: 'X',
-      icon: '/icons/logo/x.svg',
+      icon: '/icons/logo/x.avif',
       url: 'https://x.com/djoudj_dev'
     }
   ],
