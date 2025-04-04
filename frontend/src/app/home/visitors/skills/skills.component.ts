@@ -15,28 +15,34 @@ import { SkillCategory } from './models/skills.model';
   templateUrl: './skills.component.html',
   styles: `
     .frontend-dark-icon {
-      content: url('/icons/icons_stacks/frontend-dark.svg');
+      content: url('/icons/icons_stacks/frontend-dark.avif');
     }
     .frontend-light-icon {
-      content: url('/icons/icons_stacks/frontend-light.svg');
+      content: url('/icons/icons_stacks/frontend-light.avif');
     }
     .backend-dark-icon {
-      content: url('/icons/icons_stacks/backend-dark.svg');
+      content: url('/icons/icons_stacks/backend-dark.avif');
     }
     .backend-light-icon {
-      content: url('/icons/icons_stacks/backend-light.svg');
+      content: url('/icons/icons_stacks/backend-light.avif');
     }
     .bdd-dark-icon {
-      content: url('/icons/icons_stacks/bdd-dark.svg');
+      content: url('/icons/icons_stacks/bdd-dark.avif');
     }
     .bdd-light-icon {
-      content: url('/icons/icons_stacks/bdd-light.svg');
+      content: url('/icons/icons_stacks/bdd-light.avif');
     }
     .devops-dark-icon {
-      content: url('/icons/icons_stacks/devops-dark.svg');
+      content: url('/icons/icons_stacks/devops-dark.avif');
     }
     .devops-light-icon {
-      content: url('/icons/icons_stacks/devops-light.svg');
+      content: url('/icons/icons_stacks/devops-light.avif');
+    }
+    .skill-icon-dark {
+      filter: invert(100%) brightness(200%);
+    }
+    .skill-icon-light {
+      filter: none;
     }
   `
 })
