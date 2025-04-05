@@ -1,22 +1,10 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "targetDefaults": {
-    "build": {
-      "cache": true,
-      "dependsOn": ["^build"],
-      "inputs": ["production", "^production"]
-    },
-    "extract-i18n": {
-      "cache": true
-    },
-    "lint": {
-      "cache": true,
-      "inputs": ["default", "{workspaceRoot}/.eslintrc.json"]
-    },
-    "test": {
-      "cache": true,
-      "inputs": ["default", "^production"]
-    }
+    "build": { "cache": true, "dependsOn": ["^build"], "inputs": ["production", "^production"] },
+    "extract-i18n": { "cache": true },
+    "lint": { "cache": true, "inputs": ["default", "{workspaceRoot}/.eslintrc.json"] },
+    "test": { "cache": true, "inputs": ["default", "^production"] }
   },
   "defaultBase": "develop",
   "namedInputs": {
@@ -45,18 +33,8 @@
         "watchDepsTargetName": "watch-deps"
       }
     },
-    {
-      "plugin": "@nx/eslint/plugin",
-      "options": {
-        "targetName": "eslint:lint"
-      }
-    },
-    {
-      "plugin": "@nx/jest/plugin",
-      "options": {
-        "targetName": "test"
-      },
-      "exclude": ["backend-e2e/**/*"]
-    }
-  ]
+    { "plugin": "@nx/eslint/plugin", "options": { "targetName": "eslint:lint" } },
+    { "plugin": "@nx/jest/plugin", "options": { "targetName": "test" }, "exclude": ["backend-e2e/**/*"] }
+  ],
+  "nxCloudId": "67f100b157af7105bd50dd1b"
 }
